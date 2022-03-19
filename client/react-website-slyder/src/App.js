@@ -6,6 +6,7 @@ import Recommend from './components/Recommend/Recommend'
 import ScrollToTop from './components/ScrollToTop/ScrollToTop'
 
 const App = () => {
+
   return (
     <>
       <Navbar />

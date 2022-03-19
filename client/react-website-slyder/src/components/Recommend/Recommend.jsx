@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import info1 from '../Images/info1.png'
+import cart from '../Images/cart.png'
 import data from '../Recommend/Data'
 import packages from '../Recommend/Packages'
 import { Content } from './Recommend.element';
@@ -32,7 +32,7 @@ export default function Recommend() {
               <h3>{destination.title}</h3>
               <div className="info">
                 <div className="services">
-                  <img src={info1} alt="" />
+                  <img src={cart} alt="" />
                 </div>
                 <h4>{destination.price}</h4>
               </div>

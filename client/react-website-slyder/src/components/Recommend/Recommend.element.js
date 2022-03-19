@@ -48,6 +48,11 @@ export const Content = styled.div`
       }
       img {
         width: 100%;
+        transition: 0.3s ease-in-out;
+
+        &:hover{
+          transform: scale(1.2);
+        }
       }
       .info {
         display: flex;
@@ -57,7 +62,7 @@ export const Content = styled.div`
           gap: 0.3rem;
           img {
             border-radius: 1rem;
-            background-color: #4d2ddb84;
+            background-color: #000;
             width: 2rem;
             padding: 0.4rem 0.5rem;
 
