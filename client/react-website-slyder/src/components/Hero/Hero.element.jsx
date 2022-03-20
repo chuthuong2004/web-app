@@ -5,6 +5,7 @@ export const Section = styled.section`
     .background{
         img{
             max-width: 100%;
+            margin-top: 84px;
         }
     }
 `

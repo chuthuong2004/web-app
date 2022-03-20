@@ -1,7 +1,9 @@
 import React from 'react'
 
-export default function Testimonail() {
+const Testimonail = () => {
   return (
     <div>Testimonail</div>
   )
 }
+
+export default Testimonail

@@ -1,12 +1,14 @@
-import Navbar from './Navbar'
 import styled from 'styled-components'
 
 export const Nav = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    line-height: 84px;
-    z-index: 1000;
+    line-height: 82px;
+    width: 100%;
+    z-index: 10;
+    position: fixed;
+    background-color: #fff;
     .brand{
         .container{
             cursor: pointer;
@@ -18,6 +20,9 @@ export const Nav = styled.div`
             img{
                 max-width: 170px;
             }
+        }
+        .toggle{
+            display: none;
         }
     }
 
@@ -62,27 +67,77 @@ export const Nav = styled.div`
         }
 
         button{
-        margin-left: 1.2rem;
-        cursor: pointer;
-        background-color: #DCDCDC;
-        color: #000;
-        padding: 0.5rem 2rem;
-        border-radius: 1rem;
-        border: none;
-        text-transform: uppercase;
-        font-size: 1.1rem;
-        letter-spacing: 0.1rem;
-        transition: 0.3s ease-in-out;
-        align-items: center;
-        justify-content: center;
+            margin-left: 1.2rem;
+            cursor: pointer;
+            background-color: #DCDCDC;
+            color: #000;
+            padding: 0.5rem 2rem;
+            border-radius: 1rem;
+            border: none;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            letter-spacing: 0.1rem;
+            transition: 0.3s ease-in-out;
+            align-items: center;
+            justify-content: center;
 
 
-        &:hover{
+            &:hover{
             background-color: #000;
             color: #fff;
+            }
         }
     }
+    @media screen and (min-width: 280px) and (max-width: 1080px) {
+        .brand {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin: 1.2rem 0;
+            .toggle {
+                display: block;
+            }
+        }
+        ul,button, .IconNavbar{
+            display: none;
+        }
     }
 `
 
-export default Navbar.elements
+export const ResponsiveNav = styled.div`
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  top: ${({ state }) => (state ? "90px" : "-400px")};
+  background-color: white;
+  height: 25vh;
+  width: 100%;
+  align-items: center;
+  transition: 0.3s ease-in-out;
+  ul {
+    list-style-type: none;
+    width: 100%;
+    li {
+      width: 100%;
+      margin: 1rem 0;
+      margin-left: 2rem;
+
+      a {
+        text-decoration: none;
+        color: #0077b6;
+        font-size: 1.2rem;
+        transition: 0.1s ease-in-out;
+        &:hover {
+          color: #023e8a;
+        }
+      }
+      &:first-of-type {
+        a {
+          color: #023e8a;
+          font-weight: 900;
+        }
+      }
+    }
+  }
+`;
