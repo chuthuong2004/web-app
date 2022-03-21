@@ -46,6 +46,7 @@ export default function Navbar() {
       <ResponsiveNav state={navbarState}>
         <ul>
           <li><a href="#home" onClick={() => setNavbarState(false)}>Home</a></li>
+          <li><a href="#aboutus" onClick={() => setNavbarState(false)}>About Us</a></li>
           <li><a href="#blog" onClick={() => setNavbarState(false)}>Blog</a></li>
           <li><a href="#contact" onClick={() => setNavbarState(false)}>Contact</a></li>
           <li><a href="#checking" onClick={() => setNavbarState(false)}>Checking Order</a></li>

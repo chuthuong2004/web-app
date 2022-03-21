@@ -4,7 +4,7 @@ export const Nav = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    line-height: 82px;
+    line-height: 84px;
     width: 100%;
     z-index: 10;
     position: fixed;
@@ -94,9 +94,16 @@ export const Nav = styled.div`
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            margin: 1.2rem 0;
+            margin: 0.8rem 0;
+            .container{
+                img{
+                    max-width: 150px;
+                }
+            }
+            
             .toggle {
                 display: block;
+                margin-right: 4.5rem;
             }
         }
         ul,button, .IconNavbar{
@@ -108,7 +115,7 @@ export const Nav = styled.div`
 export const ResponsiveNav = styled.div`
   display: flex;
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   top: ${({ state }) => (state ? "90px" : "-400px")};
   background-color: white;
   height: 25vh;
