@@ -70,7 +70,6 @@ export const Nav = styled.div`
             margin-left: 1.2rem;
             cursor: pointer;
             background-color: #DCDCDC;
-            color: #000;
             padding: 0.5rem 2rem;
             border-radius: 1rem;
             border: none;
@@ -81,10 +80,14 @@ export const Nav = styled.div`
             align-items: center;
             justify-content: center;
 
+            a{
+                text-decoration: none;
+                color: #000;
+            }
 
-            &:hover{
-            background-color: #000;
-            color: #fff;
+            &:hover button a{
+                background-color: #000;
+                color: #fff;
             }
         }
     }
@@ -118,33 +121,52 @@ export const ResponsiveNav = styled.div`
   z-index: 10;
   top: ${({ state }) => (state ? "90px" : "-400px")};
   background-color: white;
-  height: 25vh;
+  height: 30vh;
   width: 100%;
   align-items: center;
   transition: 0.3s ease-in-out;
-  ul {
-    list-style-type: none;
-    width: 100%;
-    li {
-      width: 100%;
-      margin: 1rem 0;
-      margin-left: 2rem;
 
-      a {
-        text-decoration: none;
-        color: #0077b6;
-        font-size: 1.2rem;
-        transition: 0.1s ease-in-out;
-        &:hover {
-          color: #023e8a;
+    ul{
+        list-style-type: none;
+        width: 100%;
+
+        li{
+            width: 100%;
+            margin: 1rem 0;
+            margin-left: 2rem;
+
+            a{
+                text-decoration: none;
+                color: #000;
+                font-size: 1.2rem;
+                transition: 0.1s ease-in-out;
+
+                &:hover{
+                    color: #023e8a;
+                }
+            }
+
+            &:first-of-type {
+                a{
+                    color: #023e8a;
+                    font-weight: 900;
+                }
+            }
         }
-      }
-      &:first-of-type {
-        a {
-          color: #023e8a;
-          font-weight: 900;
-        }
-      }
     }
-  }
+
+    .signup{
+        text-decoration: none;  
+        font-weight: bold;
+
+        button{
+            height: 30px;
+            width: 30%;
+            cursor: pointer;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            border-radius: 10px;
+        }
+    }
 `;

@@ -1,10 +1,7 @@
 import React, {useState} from 'react'
-import { 
-  FaSearch,
-  FaCartPlus,
-  FaMinus,
-  FaMicrosoft 
-} from 'react-icons/fa';
+import { FaSearch,FaCartPlus } from 'react-icons/fa';
+import {AiOutlineMenu} from 'react-icons/ai'
+import {VscChromeClose} from 'react-icons/vsc'
 import logo from '../Images/logo.png'
 import {Nav, ResponsiveNav} from './Navbar.elements';
 
@@ -22,9 +19,9 @@ export default function Navbar() {
 
           <div className="toggle">
             {navbarState ? (
-              <FaMinus onClick={() => setNavbarState(false)} />
+              <VscChromeClose onClick={() => setNavbarState(false)} />
             ) : (
-              <FaMicrosoft onClick={() => setNavbarState(true)} />
+              <AiOutlineMenu onClick={() => setNavbarState(true)} />
             )}
           </div>
         </div>
@@ -40,7 +37,7 @@ export default function Navbar() {
         <div className='IconNavbar'>
           <i className='Fasearch'><FaSearch /></i>
           <i className='FaCartPlus'><FaCartPlus /></i>
-          <button>Sign Up</button>
+          <button><a href='#signup'>Sign Up</a></button>
         </div>
       </Nav>
       <ResponsiveNav state={navbarState}>
@@ -50,6 +47,7 @@ export default function Navbar() {
           <li><a href="#blog" onClick={() => setNavbarState(false)}>Blog</a></li>
           <li><a href="#contact" onClick={() => setNavbarState(false)}>Contact</a></li>
           <li><a href="#checking" onClick={() => setNavbarState(false)}>Checking Order</a></li>
+          <a className='signup' href='#signup' onClick={() => setNavbarState(false)}><button>Sign Up</button></a>
         </ul>
       </ResponsiveNav>
     </>
