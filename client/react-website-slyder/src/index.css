@@ -15,4 +15,11 @@ body {
     sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 0.4rem;
+  background-color: #000;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #fff;
+}
 

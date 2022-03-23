@@ -9,6 +9,8 @@ export const Nav = styled.div`
     z-index: 10;
     position: fixed;
     background-color: #fff;
+    box-shadow: 0 5px 10px #ccc;
+    margin-left: -2rem;
     .brand{
         .container{
             cursor: pointer;

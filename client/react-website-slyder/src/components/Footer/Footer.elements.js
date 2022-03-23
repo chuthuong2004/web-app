@@ -6,6 +6,9 @@ export const FooterContainer = styled.div`
     justify-content: space-around;
     align-items: center;
     height: 16rem;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    box-shadow: 10px 5px 30px #ccc;
 `
 
 export const FooterItems= styled.div`

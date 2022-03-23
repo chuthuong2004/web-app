@@ -36,8 +36,9 @@ export default function Recommend() {
                 </div>
                 <h5 className='price_sale'>{destination.price_sale}</h5>
                 <h4>{destination.price}</h4>
+                <h6 className='percent'>{destination.percent}</h6>
               </div>
-              <h6 className='percent'>{destination.percent}</h6>
+              
             </div>
           );
         })}

@@ -12,19 +12,13 @@ export const Content = styled.div`
       width: max-content;
       li {
         padding: 1rem 2rem;
-        
         &:hover{
             cursor: pointer
         }
       }
       .active {
         padding-bottom: 0.4rem;
-
-        &:hover{
-            cursor: pointer;
-            border-top: 0.2rem solid #000;
-        }
-        
+        border-top: 0.2rem solid #000;
       }
     }
   }
@@ -32,8 +26,9 @@ export const Content = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 2fr);
     gap: 2rem;
-    padding: 0 3rem;
+    padding: 0 6rem;
     cursor: pointer;
+    
     .destination {
       padding: 1rem;
       display: flex;
@@ -42,6 +37,7 @@ export const Content = styled.div`
       background-color: #FFFAF0;
       border-radius: 1rem;
       transition: 0.3s ease-in-out;
+      position: relative;
 
       .price_sale{
         margin-right: -13rem;
@@ -49,7 +45,7 @@ export const Content = styled.div`
         text-decoration: line-through;
         opacity: 0.6;
       }
-
+        
       .percent{
           position: absolute;
           top: 0;right: 0;
@@ -62,7 +58,7 @@ export const Content = styled.div`
           align-items: center;
           justify-content: center;
           background-color: #FF4500;
-        }
+        }     
 
       &:hover {
         transform: translateX(0.4rem) translateY(-1rem);
