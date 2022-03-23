@@ -1,5 +1,5 @@
 import React from 'react'
-import { Section } from './Hero.element'
+import { Section } from './Background.element'
 import homeImage from '../Images/hero.png'
 
 export default function Hero() {

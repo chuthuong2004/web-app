@@ -33,6 +33,11 @@ export const Content = styled.div`
     padding: 0 6rem;
     margin-top: 2rem;
     cursor: pointer;
+
+    .key{
+      display: none;
+    }
+    
     .destination {
       padding: 1rem;
       display: flex;
@@ -74,7 +79,11 @@ export const Content = styled.div`
         transition: 0.3s ease-in-out;
 
         &:hover{
-          transform: scale(1.2);
+          transform: scale(1);
+        }
+
+        &:hover :first-child {
+          background-image: url(../Destination1_1.png);
         }
       }
 

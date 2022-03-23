@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import Navbar from './components/Navbar/Navbar'
-import Hero from './components/Hero/Hero'
+import Background from './components/Background/Background'
 import Services from './components/Services/Services'
 import Recommend from './components/Recommend/Recommend'
 import ScrollToTop from './components/ScrollToTop/ScrollToTop'
@@ -8,6 +8,7 @@ import Testimonail from './components/Testimonail/Testimonail'
 import Footer from '../src/components/Footer/Footer'
 import home from '../src/Pages/HomePage/Home'
 import scrollreveal from "scrollreveal";
+import Blog from './components/Blog/Blog'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App () {
@@ -39,11 +40,12 @@ function App () {
         <Routes>
           <Route path='/' exact component = {home}/>
         </Routes>
-      <Hero />
+      <Background />
       <Services />
       <Recommend />
       <ScrollToTop />
       <Testimonail />
+      <Blog />
       <Footer />
     </Router>
   )

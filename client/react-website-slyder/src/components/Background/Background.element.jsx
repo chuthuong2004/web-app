@@ -1,4 +1,4 @@
-import Hero from './Hero'
+import Background from './Background'
 import styled from 'styled-components'
 
 export const Section = styled.section`
@@ -9,4 +9,4 @@ export const Section = styled.section`
         }
     }
 `
-export default Hero.element
+export default Background.element

@@ -4,64 +4,49 @@ import Destination3 from '../Images/Destination3.png'
 import Destination4 from '../Images/Destination4.png'
 import Destination5 from '../Images/Destination5.png'
 import Destination6 from '../Images/Destination6.png'
-import Destination7 from '../Images/Destination6.png'
-import Destination8 from '../Images/Destination6.png'
+import Destination7 from '../Images/Destination7.png'
+import Destination8 from '../Images/Destination8.png'
 
 const data = [
     {
       image: Destination1,
-      title: "Jordan 1 Low Dunk Chicago",
-      price: "$512.00",
-      price_sale: "$782.00",
-      percent: "42%"
+      title: "SLYDER’S BASIC HOODIE SS1 – BLACK",
+      price: "395.000đ",
     },
     {
       image: Destination2,
-      title: "Jordan 1 Mid White Red",
-      price: "$100.00",
-      price_sale: "$222.00",
-      percent: "52%"
+      title: "SHORT URBAN SLYDER BASIC",
+      price: "260.000đ",
     },
     {
       image: Destination3,
-      title: "Paris",
-      price: "455.00",
-      price_sale: "$522.00",
-      percent: "13%"
+      title: "SLYDER LONG WALLET",
+      price: "200.000đ",
     },
     {
       image: Destination4,
-      title: "Jordan 1 High Retro Stom Blue",
-      price: "$524.00",
-      price_sale: "$782.00",
-      percent: "42%"
+      title: "SLYDER MINI BAG SS2",
+      price: "220.000đ",
     },
     {
       image: Destination5,
-      title: "Jordan 1 Mid Black White",
-      price: "$254.00",
-      price_sale: "$782.00",
-      percent: "42%"
+      title: "SLYDER SIGNATURE T-SHIRT",
+      price: "320.000",
     },
     {
       image: Destination6,
-      title: "Jordan 1 Low Black Toe",
-      price: "$135.00",
-      price_sale: "$782.00",
-      percent: "42%"
+      title: "SLYDER SPECIAL SS1 T-SHIRT",
+      price: "280.000đ",
     },
     {
       image: Destination7,
-      title: "Jordan 1 Low Black Toe",
-      price: "$135.00",
-      price_sale: "$782.00",
-      percent: "42%"}
-    ,{
+      title: "SLYDER BLACK CAP",
+      price: "180.000đ",
+    },
+    {
       image: Destination8,
-      title: "Jordan 1 Low Black Toe",
-      price: "$135.00",
-      price_sale: "$782.00",
-      percent: "42%"
+      title: "SLYDER’S BASIC HOODIE – BABY BLUE",
+      price: "395.000đ",
     },
 ];
 

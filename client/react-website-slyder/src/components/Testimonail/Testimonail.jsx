@@ -1,6 +1,6 @@
 import React from 'react'
 import cart from '../Images/cart.png'
-import data from '../Recommend/Data'
+import data from '../Testimonail/Data'
 import { Content, Container } from './Testimonail.element'
 
 export default function Testimonail(){
@@ -25,10 +25,9 @@ export default function Testimonail(){
                   <img src={cart} alt="" />
                 </div>
                 <h5 className='price_sale'>{destination.price_sale}</h5>
-                <h4>{destination.price}</h4>
+                <h4>{destination.price}</h4>  
                 <h6 className='percent'>{destination.percent}</h6>
               </div>
-              
             </div>
           );
         })}
