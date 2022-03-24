@@ -38,13 +38,6 @@ export const Content = styled.div`
       border-radius: 1rem;
       transition: 0.3s ease-in-out;
       position: relative;
-
-      .price_sale{
-        margin-right: -13rem;
-        font-size: 1rem;
-        text-decoration: line-through;
-        opacity: 0.6;
-      }
         
       .percent{
           position: absolute;

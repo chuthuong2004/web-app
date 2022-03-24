@@ -49,7 +49,7 @@ export const Content = styled.div`
       position: relative;
 
       .price_sale{
-        margin-right: -12rem;
+        /* margin-right: -12rem; */
         font-size: 1rem;
         text-decoration: line-through;
         opacity: 0.6;

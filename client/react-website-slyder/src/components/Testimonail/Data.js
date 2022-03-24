@@ -22,9 +22,9 @@ const data = [
     {
       image: Destination_3,
       title: "SLYDER BUTTERFLY WHITE T-SHIRT",
-      price: "455.00",
-      price_sale: "$522.00",
-      percent: "13%"
+      price: "225.000đ",
+      price_sale: "320.000đ",
+      percent: "25%"
     },
     {
       image: Destination_4,
