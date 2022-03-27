@@ -39,7 +39,7 @@ export const Nav = styled.div`
                 color: #000;
                 font-size: 1.2rem;
                 opacity: 0.8;
-                transition: 0ms.1s ease-in-out;
+                transition: 0.1s ease-in-out;
 
                 &:hover{
                     box-shadow: 0 0.1rem #023e83;
@@ -62,7 +62,7 @@ export const Nav = styled.div`
             opacity: 0.4;
 
             &:hover{
-                transition: 0ms.1s ease-in-out;
+                transition: 0.1s ease-in-out;
                 color: #023e83;
                 opacity: 1;
             }
