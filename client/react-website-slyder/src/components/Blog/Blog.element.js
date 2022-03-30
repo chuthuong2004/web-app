@@ -1,6 +1,9 @@
 import styled from 'styled-components'
+import Slider from 'react-slick';
+
 
 export const Container = styled.div`
+    padding: 0 8rem;
     .Content{
         text-align: center;
         margin-top: 6rem;
@@ -33,7 +36,7 @@ export const Container = styled.div`
             align-items: center;
             position: relative;
             justify-content: space-evenly;
-            padding: 2rem 8rem;
+            padding: 2rem 2rem;
             .Image{
                 img{
                     margin-right: -8rem;
@@ -61,31 +64,6 @@ export const Container = styled.div`
         align-items: center;
         justify-content: space-around;
         padding: 2rem 8rem;
-        
-
-        #blogl{
-            display: flex;
-            padding: 0 10px;
-
-            #BloglItems{
-                font-size: 0.8rem;
-                text-align: center;
-                margin: auto 0;
-            }
-
-            h2{
-                margin-bottom: 10px;
-                opacity: 0.8;
-                cursor: pointer;
-            }
-
-            
-
-            img{
-                height: 14rem;
-                width: 14rem;    
-            }
-        }
     }
 `
 
@@ -108,5 +86,60 @@ export const BlogIcon = styled.div`
         top: 50%;right: 0;
         margin-right: 16rem;
     }
+`
+
+export const ReviewSlider = styled(Slider)`
+	width: 100%;
+    cursor: move;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+
+    :active{
+        cursor: grabbing;
+        cursor: -moz-grabbing;
+        cursor: -webkit-grabbing;
+    }
+	.slick-track {
+		display: flex;
+		padding: 30px;
+		gap: 3rem;
+	}
+	.slick-slide {
+		display: flex;
+		justify-content: space-around;
+		margin-bottom: 1;
+	}
+
+	.slick-list {
+		overflow: hidden;
+	}
+`;
+
+export const ImgBlogl = styled.div`
+    display: flex;
+`
+
+export const CrouseImg = styled.img`
+    display: block;
+`
+
+export const ImgShow = styled.div`
+    
+`
+
+export const Bloglnext = styled.div`
+    margin-top: 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+`
+
+export const BloglCourse = styled.div`
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left: 12px;
 `
 

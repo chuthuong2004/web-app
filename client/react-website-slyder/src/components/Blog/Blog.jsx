@@ -1,15 +1,26 @@
-import React from 'react'
-import { Container, BlogIcon } from '../Blog/Blog.element'
+import React, {useState} from 'react'
+import { 
+    Container, 
+    BlogIcon, 
+    ReviewSlider,
+    ImgBlogl,
+    CrouseImg,
+    ImgShow,
+    BloglCourse,
+    Bloglnext,
+} from './Blog.element'
 import blog3 from '../Images/blog3.jpg'
 import blog4 from '../Images/blog4.jpg'
 import blog5 from '../Images/blog5.png'
-import {CgCalendarDates} from 'react-icons/cg'
 import {BsFillCaretRightFill, BsFillCaretLeftFill} from 'react-icons/bs'
-import Data from '../Blog/Data'
+import data, {sliderSettings} from './Data'
+import { TextBlogl } from '../../globalStyles'
 
 const Blog = () => {
 
-  return (
+    const [setSliderRef] = useState(null);
+
+    return (
     <>
         <Container>
             <div className='Content'>
@@ -47,20 +58,26 @@ const Blog = () => {
                 </div>
             </div>
 
-            <div className='blogsweets'>
-                {Data.map((course) => {
-                    return (
-                        <course id = "blogl">
-                            <img src = {course.img} alt = "/" />
-                            <div id = "BloglItems">
-                                <h2>{course.title}</h2>
-                                <p><CgCalendarDates />{course.date}</p>
-                                <span>{course.content}</span>
-                            </div>
-                        </course>
-                    )
-                })}
-            </div>
+            <ReviewSlider {...sliderSettings} ref={setSliderRef}>
+				{data.map((course, index) => (
+                    <ImgShow>
+					<ImgBlogl key={index}>
+                        <CrouseImg src = {course.img} height="200px" width="200px"/>
+                        <BloglCourse>
+                            <TextBlogl size="1.2rem"  weight="bold">
+                                {course.title}
+                            </TextBlogl>
+                            <TextBlogl color="#A9A9A9" size="0.8rem" margin="12px 0">
+                                {course.date}
+                            </TextBlogl>
+                            <TextBlogl>
+                                {course.content}
+                            </TextBlogl>
+                            <Bloglnext>Xem Thêm</Bloglnext>
+                        </BloglCourse>
+                    </ImgBlogl></ImgShow>
+				))}
+			</ReviewSlider>
         </Container>
     </>
   )

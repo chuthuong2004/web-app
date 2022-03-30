@@ -25,22 +25,22 @@ export const MainHeading = styled.h1`
 	margin-bottom: 2rem;
 	color: ${({ inverse }) => (inverse ? '$403ae3' : '#fff')};
 	width: 100%;
-	letter-spacing: 4px;
 	text-align: center;
 `;
 
 export const Heading = styled.h2`
-	font-size: clamp(1.3rem, 13vw, 3.1rem);
+	font-size: 1.8rem;
 	margin: ${({ margin }) => (margin ? margin : '')};
 	margin-bottom: ${({ mb }) => (mb ? mb : '')};
 	margin-top: ${({ mt }) => (mt ? mt : '')};
 	color: ${({ inverse }) => (inverse ? '$403ae3' : '#fff')};
-	letter-spacing: 0.4rem;
-	line-height: 1.06;
+	letter-spacing: 0.2rem;
+	opacity: 0.8;
 	text-align: center;
 	width: ${({ width }) => (width ? width : '100%')};
 `;
 export const TextWrapper = styled.span`
+	display: block;
 	color: ${({ color }) => (color ? color : '')};
 	font-size: ${({ size }) => (size ? size : '')};
 	font-weight: ${({ weight }) => (weight ? weight : '')};
@@ -50,6 +50,18 @@ export const TextWrapper = styled.span`
 	margin-bottom: ${({ mb }) => (mb ? mb : '')};
 	margin-top: ${({ mt }) => (mt ? mt : '')};
 `;
+
+export const TextBlogl = styled.span`
+	display: block;
+	color: ${({ color }) => (color ? color : '')};
+	font-size: ${({ size }) => (size ? size : '')};
+	font-weight: ${({ weight }) => (weight ? weight : '')};
+	letter-spacing: ${({ spacing }) => (spacing ? spacing : '')};
+	padding: ${({ padding }) => (padding ? padding : '')};
+	margin: ${({ margin }) => (margin ? margin : '')};
+	margin-bottom: ${({ mb }) => (mb ? mb : '')};
+	margin-top: ${({ mt }) => (mt ? mt : '')};
+`
 export const Section = styled.section`
 	padding: ${({ padding }) => (padding ? padding : '140px 0')};
 	margin: ${({ margin }) => (margin ? margin : '')};

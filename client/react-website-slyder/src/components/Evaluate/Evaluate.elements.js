@@ -1,55 +1,56 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { Row } from '../../globalStyles';
+import Slider from 'react-slick';
 
-export const Section = styled.div`
-    margin-top: 6rem;
-    .heading{
-        text-align: center;
-        opacity: 0.8;
-    }
+export const CarouselImage = styled.img`
+	width: 50%;
+	height: 50%;
+	border-radius: 100%;
+	object-fit: cover;
+	margin-bottom: 8px;
+	vertical-align: middle;
+`;
 
-    .review-slider{
-        display: flex;
-        padding-bottom: 3rem;
-        
-        .box{
-            text-align: center;
-            padding:2rem;
-            margin: 2rem 0;
-            opacity: .4;
-            transform: scale(.9);
+export const ImageWrapper = styled.div`
+	width: 80%;
+	display: flex !important;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	outline: none;
+`;
 
-            img{
-                height:7rem;
-                width:7rem;
-                border-radius: 50%;
-                object-fit: cover;
-            }
+export const ButtonContainer = styled(Row)`
+	& svg {
+		margin: 0 1rem;
+		cursor: pointer;
+	}
 
-            .content{
-                p{
-                    color:var(--light-color);
-                    font-size: 1.4rem;
-                    padding:1rem 0;
-                }
-                h3{
-                    color:var(--black);
-                    font-size: 2.2rem;
-                    padding-bottom: .5rem;
-                }
+	& svg:hover {
+		opacity: 0.7;
+		transition: opacity 0.2s ease-in;
+	}
+	@media screen and (max-width: 960px) {
+		margin: 0 auto;
+	}
+`;
 
-                .stars{
-                    color: #f9d806;
-                    font-size: 1.7rem;
-                }
-            }
-        }
+export const ReviewSlider = styled(Slider)`
+	width: 100%;
 
-        .swiper-slide-active{
-            opacity: 1;
-            transform: scale(1);
-            box-shadow: 0.5rem 1rem rgba(0,0,0,.1);
-            border:var(--border);
-            border-radius: .1rem solid rgba(0,0,0,.1);
-        }
-    }
-`
+	.slick-track {
+		display: flex;
+		padding: 30px;
+		gap: 3rem;
+	}
+	.slick-slide {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 1;
+		outline: none;
+	}
+
+	.slick-list {
+		overflow: hidden;
+	}
+`;
