@@ -8,12 +8,12 @@ import {
     ImgShow,
     BloglCourse,
     Bloglnext,
+    sliderSettings,
 } from './Blog.element'
-import blog3 from '../Images/blog3.jpg'
-import blog4 from '../Images/blog4.jpg'
-import blog5 from '../Images/blog5.png'
 import {BsFillCaretRightFill, BsFillCaretLeftFill} from 'react-icons/bs'
-import data, {sliderSettings} from './Data'
+import {FcCalendar} from 'react-icons/fc'
+import data from './Data'
+import dataOfficail from './DataOfficail'
 import { TextBlogl } from '../../globalStyles'
 
 const Blog = () => {
@@ -30,19 +30,16 @@ const Blog = () => {
                 </div>
             </div>
             <div className='ImagesIcon'>
-                <div className='ImagesItem'>
-                    <div className='Image'>
-                        <img src={blog3} alt="" />
-                    </div>
-
-                    <div className='Image'>
-                        <img src={blog4} alt="" />
-                    </div>
-
-                    <div className='Image'>
-                        <img src={blog5} alt="" />
-                    </div>  
-                </div>
+                <ReviewSlider {...sliderSettings} ref={setSliderRef}>
+                    {dataOfficail.map((course, index) => (
+                        <ImgShow>
+                            <ImgBlogl key={index}>
+                                <CrouseImg src = {course.images} height="400px" width="400px"/>
+                            </ImgBlogl>
+                        </ImgShow>
+                    ))}
+                </ReviewSlider>
+    
                 <BlogIcon>
                     <BsFillCaretLeftFill className='BsLeft'/>
                     <BsFillCaretRightFill className='BsRight' />
@@ -68,6 +65,7 @@ const Blog = () => {
                                 {course.title}
                             </TextBlogl>
                             <TextBlogl color="#A9A9A9" size="0.8rem" margin="12px 0">
+                                <FcCalendar />
                                 {course.date}
                             </TextBlogl>
                             <TextBlogl>
