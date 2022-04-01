@@ -1,7 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import productApi from '../api/productApi'
 import imgItem from '../components/Images/Destination1_1.png'
-
+import imgItem2 from '../components/Images/Destination_3.png'
+import Grid from '../components/Grid/Grid'
+import catelory from '../Fake/catelory'
+import colors from '../Fake/product-color'
+import Checkbox from '../components/Checkbox/Checkbox'
 
 const Catalog = () => {
   
@@ -27,25 +31,55 @@ const Catalog = () => {
   
   // productApi.getAll().then(response => console.log(response))
   const listProduct = product.map(item => (
-    <div className="card" key={item._id}>
-      <div className="card_img">
+    <div className="product-card" key={item._id}>
+      <div className="product-card__image">
         <img src={imgItem} />
+        <img src={imgItem2} />
       </div>
-      <div className="card_header">
-        <h2>{item.name}</h2>
-        <p>{item.price} <span>{item.price*(100-item.discount)/100} Vnđ</span></p>
-        <div className="btn">
-          Thêm vào giỏ hàng
-        </div>
-      </div>
+      <h3 className="product-card__name">{item.name}</h3>
+      <p className="product-card__price">{item.price*(100-item.discount)/100} Vnđ <span className="product-card__price__old">{item.price}</span></p>
     </div>
   ))
   return (
-    <div className="container">
-      <div className="main_content">
-        <h3 className="h3_product">Sản phẩm</h3>
-        {listProduct}
-      </div>
+    <div className="catalog">
+        <div className="catalog__filter">
+          <div className="catalog__filter__widget">
+            <div className="catalog__filter__widget__title">
+              Danh muc san pham
+            </div>
+            <div className="catalog__filter__widget__content">
+              {
+                catelory.map((item, index) => (
+                   <div key={index} className="catalog__filter__widget__content__item">
+                     <Checkbox label={item.display} />
+                   </div>
+                ))}
+            </div>
+
+            <div className="catalog__filter__widget__title">
+              Màu sắc
+            </div>
+            <div className="catalog__filter__widget__content">
+              {
+                colors.map((item, index) => (
+                   <div key={index} className="catalog__filter__widget__content__item">
+                     <Checkbox label={item.display} />
+                   </div>
+                ))}
+            </div>
+
+          </div>
+        </div>
+        <div className="catalog__content">
+            <Grid
+              gap={20}
+              col={4}
+              mdCol={2}
+              smCol={1}
+               >
+              {listProduct}
+            </Grid>
+        </div>
     </div>
   )
 }

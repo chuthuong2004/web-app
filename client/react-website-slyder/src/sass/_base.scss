@@ -40,7 +40,7 @@ a {
 
 @each $val in $numbers {
     .grid-col-#{$val} {
-        grid-template-columns: repeat($val, 1fr);
+        grid-template-columns: repeat($val, 2fr);
     }
 }
 
@@ -87,4 +87,8 @@ a {
     @include mobile {
         margin-top: calc(#{$header-mobile-height} + 10px);
     }
+}
+
+.grid{
+    display: grid;
 }
