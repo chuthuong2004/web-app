@@ -13,6 +13,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignUp from './Pages/SignupPage'
 import GlobalStyle from './globalStyles'
 
+
+
 function App () {
   useEffect(() => {
     const sr = scrollreveal({
