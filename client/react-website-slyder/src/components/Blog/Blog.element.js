@@ -27,37 +27,6 @@ export const Container = styled.div`
             font-size: 1.8rem;
         }
     }
-    
-    .ImagesIcon{
-        position: relative;
-        .ImagesItem{
-            display: flex;
-            text-align: center;
-            align-items: center;
-            position: relative;
-            justify-content: space-evenly;
-            padding: 2rem 2rem;
-            .Image{
-                img{
-                    margin-right: -8rem;
-                    margin-left: -8rem;
-                    max-width: 459px;
-                    max-height: 367px;
-                    box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 20px;
-                    cursor: pointer;
-                }
-            }
-
-            &:hover{
-                .BsLeft{
-                    display: block;
-                }
-                .BsRight{
-                    display: block;
-                }
-            } 
-        }
-    }
 
     .blogsweets{
         display: flex;
@@ -103,7 +72,7 @@ export const ReviewSlider = styled(Slider)`
 	.slick-track {
 		display: flex;
 		padding: 30px;
-		gap: 3rem;
+		gap: 1rem;
 	}
 	.slick-slide {
 		display: flex;
@@ -140,6 +109,28 @@ export const BloglCourse = styled.div`
     text-align: center;
     margin-top: auto;
     margin-bottom: auto;
-    padding-left: 12px;
+    padding-left: 6px;
 `
+
+export const sliderSettings = {
+	arrows: false,
+	slidesToShow: 3,
+	focusOnselect: false,
+	accessability: false,
+	responsive: [
+		{
+			breakpoint: 1280,
+			settings: {
+				slidesToShow: 2,
+			},
+		},
+
+		{
+			breakpoint: 900,
+			settings: {
+				slidesToShow: 2,
+			},
+		},
+	],
+};
 
