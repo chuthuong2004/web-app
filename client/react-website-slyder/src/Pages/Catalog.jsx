@@ -1,15 +1,56 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useCallback} from 'react'
+import categoryApi from '../api/categoryApi'
 import productApi from '../api/productApi'
 import imgItem from '../components/Images/Destination1_1.png'
 import imgItem2 from '../components/Images/Destination_3.png'
 import Grid from '../components/Grid/Grid'
-import catelory from '../Fake/catelory'
-import colors from '../Fake/product-color'
 import Checkbox from '../components/Checkbox/Checkbox'
 
 const Catalog = () => {
   
-  const [product, setProduct] = useState([])
+  const [products, setProducts] = useState([])
+  const [category, setCategory] = useState([])
+
+
+
+  const initFilter = {
+    category: [],
+  }
+
+  const [filter, setFilter] = useState(initFilter)
+
+  const filterSelect = (type, checked, item) => {
+    if(checked){
+      if(type === "CATEGORY"){
+            setFilter({...filter, category: [...filter.category, item._id]})
+        }
+    } else {
+      if(type === "CATEGORY"){
+          const newCategory = filter.category.filter(e => e !== item._id);
+          setFilter({...filter, category: newCategory})
+      }
+     }
+  }
+  const clearFilter = () => setFilter(initFilter)
+
+  const  updateProducts = useCallback(
+    () => {
+      let temp= products
+      if (filter.category.length > 0) {
+        temp = temp.filter(e => filter.category.includes(e.category))
+      }
+      setProducts(temp)
+    },
+    [filter, setProducts],
+  )
+
+  useEffect(() => {
+    updateProducts()
+  }, [updateProducts])
+
+
+
+
 
   useEffect(() => {
     const fetchProductList = async () => {
@@ -18,9 +59,12 @@ const Catalog = () => {
           _page: 1,
           _limit: 10,
         }
-        const response = await productApi.getAll(params)
-        console.log(response)
-        setProduct(response)
+        const responseCategory = await categoryApi.getAll(params)
+        const responseProduct = await productApi.getAll(params)
+        setCategory(responseCategory)
+        setProducts(responseProduct)
+        console.log(responseCategory)
+        console.log(responseProduct)
       } catch (error) {
         console.log('Failed: ', error)
       }
@@ -30,7 +74,7 @@ const Catalog = () => {
   }, []);
   
   // productApi.getAll().then(response => console.log(response))
-  const listProduct = product.map(item => (
+  const listProduct = products.map(item => (
     <div className="product-card" key={item._id}>
       <div className="product-card__image">
         <img src={imgItem} />
@@ -42,6 +86,7 @@ const Catalog = () => {
   ))
   return (
     <div className="catalog">
+      {console.log(filter)}
         <div className="catalog__filter">
           <div className="catalog__filter__widget">
             <div className="catalog__filter__widget__title">
@@ -49,26 +94,22 @@ const Catalog = () => {
             </div>
             <div className="catalog__filter__widget__content">
               {
-                catelory.map((item, index) => (
+                category.map((item, index) => (
                    <div key={index} className="catalog__filter__widget__content__item">
-                     <Checkbox label={item.display} />
+                     <Checkbox
+                      label={item.name}
+                      onChange={(input) => filterSelect("CATEGORY", input.checked, item)}
+                      checked={filter.category.includes(item._id)}
+                    />
                    </div>
                 ))}
             </div>
-
-            <div className="catalog__filter__widget__title">
-              Màu sắc
+        </div>
+          <div className="catalog__filter__widget">
+              <div className="catalog__filter__widget__content">
+                  <button onClick={clearFilter}>Xoá bộ lọc</button>
+             </div>
             </div>
-            <div className="catalog__filter__widget__content">
-              {
-                colors.map((item, index) => (
-                   <div key={index} className="catalog__filter__widget__content__item">
-                     <Checkbox label={item.display} />
-                   </div>
-                ))}
-            </div>
-
-          </div>
         </div>
         <div className="catalog__content">
             <Grid

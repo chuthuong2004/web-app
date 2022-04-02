@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 // import Catalog from './Pages/Catalog'
-// import './sass/index.css'
+import './sass/index.css'
 
 
 
