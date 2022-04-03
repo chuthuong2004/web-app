@@ -112,6 +112,7 @@ export const Nav = styled.div`
             
             .toggle {
                 display: block;
+                font-size: 1.6rem;
                 margin-right: 4.5rem;
                 top: 0;left: 0;
                 margin-left: 1rem;
@@ -122,6 +123,9 @@ export const Nav = styled.div`
         .IconNavbar{
             .Fasearch{
                 display: none;
+            }
+            .FaCartPlus{
+                font-size: 1.6rem;
             }
         }
 

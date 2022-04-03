@@ -184,7 +184,7 @@ export const Content = styled.div`
       }
     }
     .destinations {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
       padding: 0;
     }
   }

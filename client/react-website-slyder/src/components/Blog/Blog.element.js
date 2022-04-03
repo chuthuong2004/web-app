@@ -25,14 +25,20 @@ export const Container = styled.div`
             font-weight: 700;
             font-family: 'Hurricane', cursive;
             font-size: 1.8rem;
-        }
+        } 
     }
-
     .blogsweets{
         display: flex;
         align-items: center;
         justify-content: space-around;
         padding: 2rem 8rem;
+    }
+    @media screen and (min-width: 280px) and (max-width: 768px){
+        padding: 0 ;
+
+        .Content{
+            margin-bottom: 2rem;
+        }
     }
 `
 
@@ -83,6 +89,15 @@ export const ReviewSlider = styled(Slider)`
 	.slick-list {
 		overflow: hidden;
 	}
+
+    @media screen and (min-width: 280px) and (max-width: 768px){
+        img{
+            max-width: 100%;
+        }
+        .slick-track{
+            padding: 0;
+        }
+    }
 `;
 
 export const ImgBlogl = styled.div`
@@ -91,6 +106,7 @@ export const ImgBlogl = styled.div`
 
 export const CrouseImg = styled.img`
     display: block;
+
 `
 
 export const ImgShow = styled.div`
@@ -121,14 +137,14 @@ export const sliderSettings = {
 		{
 			breakpoint: 1280,
 			settings: {
-				slidesToShow: 2,
+				slidesToShow: 1,
 			},
 		},
 
 		{
 			breakpoint: 900,
 			settings: {
-				slidesToShow: 2,
+				slidesToShow: 1,
 			},
 		},
 	],

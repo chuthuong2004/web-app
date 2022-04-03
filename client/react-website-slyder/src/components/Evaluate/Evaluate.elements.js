@@ -41,7 +41,7 @@ export const ReviewSlider = styled(Slider)`
 	.slick-track {
 		display: flex;
 		padding: 30px;
-		gap: 3rem;
+		gap: 1rem;
 	}
 	.slick-slide {
 		display: flex;
@@ -52,5 +52,12 @@ export const ReviewSlider = styled(Slider)`
 
 	.slick-list {
 		overflow: hidden;
+	}
+
+	@media screen and (max-width: 960px){
+		.slick-track{
+			padding: 0;
+			padding-top: 30px;
+		}
 	}
 `;
