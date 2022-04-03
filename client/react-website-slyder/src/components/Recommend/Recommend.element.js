@@ -147,7 +147,7 @@ export const Content = styled.div`
       ul {
         li {
           padding: 0 0.5rem;
-          font-size: 2vh;
+          font-size: 1.5vh;
           padding-bottom: 1rem;
         }
         .active {

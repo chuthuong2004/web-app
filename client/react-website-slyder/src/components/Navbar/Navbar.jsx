@@ -4,6 +4,8 @@ import {AiOutlineMenu} from 'react-icons/ai'
 import {VscChromeClose} from 'react-icons/vsc'
 import logo from '../Images/logo.png'
 import {Nav, ResponsiveNav} from './Navbar.elements';
+import { Link } from 'react-router-dom';
+import { data, Sign } from './Data';
 
 export default function Navbar() {
 
@@ -25,19 +27,29 @@ export default function Navbar() {
             )}
           </div>
         </div>
-
+          
         <ul>
-          <li><a href='#home'>Home</a></li>
-          <li> <a href='#aboutus'>About Us</a></li>
-          <li> <a href='#blog'>Blog</a></li>
-          <li> <a href='#contact'>Contact</a></li>
-          <li> <a href='#checking'>Checking order</a></li>
+          {data.map((item, index) => {
+            return(
+              <li key ={index}>
+                <a href={item.url}>
+                  {item.title}
+                </a>
+              </li>
+            )
+          })}
         </ul>
 
         <div className='IconNavbar'>
           <i className='Fasearch'><FaSearch /></i>
           <i className='FaCartPlus'><FaCartPlus /></i>
-          <button><a href='#signup'>Sign Up</a></button>
+          <button>
+            {Sign.map((item) =>{
+              return(
+                <a href={item.url}>{item.title}</a>
+              )
+            })}
+          </button>
         </div>
       </Nav>
       <ResponsiveNav state={navbarState}>
@@ -47,7 +59,7 @@ export default function Navbar() {
           <li><a href="#blog" onClick={() => setNavbarState(false)}>Blog</a></li>
           <li><a href="#contact" onClick={() => setNavbarState(false)}>Contact</a></li>
           <li><a href="#checking" onClick={() => setNavbarState(false)}>Checking Order</a></li>
-          <a className='signup' href='#signup' onClick={() => setNavbarState(false)}><button>Sign Up</button></a>
+          <a to="/sign-up" onClick={() => setNavbarState(false)}><button>Sign Up</button></a>
         </ul>
       </ResponsiveNav>
     </>

@@ -11,10 +11,10 @@ export const Nav = styled.div`
     background-color: #fff;
     box-shadow: 0 5px 10px #ccc;
     margin-left: -2rem;
+    padding: 0 1rem;
     .brand{
         .container{
             cursor: pointer;
-            gap: 0.2rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -62,6 +62,7 @@ export const Nav = styled.div`
             opacity: 0.4;
 
             &:hover{
+                cursor: pointer;
                 transition: 0.1s ease-in-out;
                 color: #023e83;
                 opacity: 1;
@@ -94,14 +95,17 @@ export const Nav = styled.div`
         }
     }
     @media screen and (min-width: 280px) and (max-width: 1080px) {
+        
         .brand {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             width: 100%;
-            margin: 0.8rem 0;
+            height: 84px;
+            display: flex;
             .container{
+                display: flex;
+                margin-left: auto;
+                margin-right: auto;
                 img{
+                    padding-left: 1rem;
                     max-width: 150px;
                 }
             }
@@ -109,9 +113,19 @@ export const Nav = styled.div`
             .toggle {
                 display: block;
                 margin-right: 4.5rem;
+                top: 0;left: 0;
+                margin-left: 1rem;
+                position: absolute;
             }
         }
-        ul,button, .IconNavbar{
+
+        .IconNavbar{
+            .Fasearch{
+                display: none;
+            }
+        }
+
+        ul,button{
             display: none;
         }
     }
@@ -121,12 +135,15 @@ export const ResponsiveNav = styled.div`
   display: flex;
   position: absolute;
   z-index: 10;
-  top: ${({ state }) => (state ? "90px" : "-400px")};
+  top: ${({ state }) => (state ? "80px" : "-400px")};
   background-color: white;
   height: 30vh;
   width: 100%;
+  margin-left: -2rem;
+  margin-right: -2rem;
   align-items: center;
   transition: 0.3s ease-in-out;
+
 
     ul{
         list-style-type: none;
@@ -157,18 +174,24 @@ export const ResponsiveNav = styled.div`
         }
     }
 
-    .signup{
-        text-decoration: none;  
-        font-weight: bold;
+    button{
+        height: 30px;
+        width: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin-left: auto;
+        margin-right: auto;
+        color: #ccc;
+        list-style: none;
+        background-color: #023e8a;
+        border: none;
+        transition: 0.3s ease-in-out;
 
-        button{
-            height: 30px;
-            width: 30%;
-            cursor: pointer;
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-            border-radius: 10px;
+        &:hover{
+            background-color: #ccc;
+            color: #000;
         }
     }
 `;

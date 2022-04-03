@@ -24,6 +24,14 @@ export const Container = styled.div`
             font-size: 1.8rem;
         }
     }
+
+    @media screen and (min-width: 280px) and (max-width: 1080px){
+      .Content{
+        h1, .ContentAbout-name{
+          font-size: 1.2rem;
+        }
+      }
+    }
 `
 export const Content = styled.div`
   .destinations {

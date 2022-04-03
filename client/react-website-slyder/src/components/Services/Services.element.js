@@ -49,6 +49,24 @@ export const Container = styled.div`
             font-size: 1.8rem;
         }
     }
+    @media screen and (min-width: 280px) and (max-width: 1080px){
+        .ImagesItem{
+            padding: 2rem 0;
+            display: block;
+            .Image{
+                padding: 12px;
+            }
+        } 
+        .Content{
+            h1, .ContentAbout-From{
+                font-size: 1.2rem;
+            }
+
+            .ContentAbout-name{
+                font-size: 1rem;
+            }
+        }       
+    }
 `
 
 export default Services.element
