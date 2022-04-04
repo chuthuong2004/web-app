@@ -4,7 +4,7 @@ import {AiOutlineMenu} from 'react-icons/ai'
 import {VscChromeClose} from 'react-icons/vsc'
 import logo from '../Images/logo.png'
 import {Nav, ResponsiveNav} from './Navbar.elements';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { data, Sign } from './Data';
 
 export default function Navbar() {
@@ -16,7 +16,7 @@ export default function Navbar() {
       <Nav>
         <div className='brand'>
           <div className='container'>
-            <img src = {logo} alt = ""/>
+            <img src = {logo} alt = "logo"/>
           </div>
 
           <div className="toggle">
@@ -29,12 +29,11 @@ export default function Navbar() {
         </div>
           
         <ul>
-          {data.map((item, index) => {
+          {data.map((el, index) => {
             return(
-              <li key ={index}>
-                <a href={item.url}>
-                  {item.title}
-                </a>
+              <li key ={index}><NavLink to={el.to}>
+                  {el.text}
+                </NavLink>
               </li>
             )
           })}
@@ -44,9 +43,9 @@ export default function Navbar() {
           <i className='Fasearch'><FaSearch /></i>
           <i className='FaCartPlus'><FaCartPlus /></i>
           <button>
-            {Sign.map((item) =>{
+            {Sign.map((el) =>{
               return(
-                <a href={item.url}>{item.title}</a>
+                <NavLink to={el.to}>{el.text}</NavLink>
               )
             })}
           </button>
@@ -54,12 +53,15 @@ export default function Navbar() {
       </Nav>
       <ResponsiveNav state={navbarState}>
         <ul>
-          <li><a href="#home" onClick={() => setNavbarState(false)}>Home</a></li>
-          <li><a href="#aboutus" onClick={() => setNavbarState(false)}>About Us</a></li>
-          <li><a href="#blog" onClick={() => setNavbarState(false)}>Blog</a></li>
-          <li><a href="#contact" onClick={() => setNavbarState(false)}>Contact</a></li>
-          <li><a href="#checking" onClick={() => setNavbarState(false)}>Checking Order</a></li>
-          <a to="/sign-up" onClick={() => setNavbarState(false)}><button>Sign Up</button></a>
+          {data.map((el, index) => {
+              return(
+                <li key ={index}><NavLink to={el.to} onClick={() => setNavbarState(false)} >
+                    {el.text}
+                  </NavLink>
+                </li>
+              )
+          })}
+          <button><NavLink to="/sign-up" onClick={() => setNavbarState(false)}>Sign Up</NavLink></button>
         </ul>
       </ResponsiveNav>
     </>

@@ -40,11 +40,11 @@ function App () {
   }, []);
   return (
     <Router>
-      <GlobalStyle />
+        <GlobalStyle />
         <Navbar />
-          <Routes>
-            <Route path='/signup' exact component = {SignUp}/>
-          </Routes>
+        <Routes>
+          <Route path="/signup" exact component={<SignUp />} />
+        </Routes>
         <Background />
         <Services />
         <Recommend />

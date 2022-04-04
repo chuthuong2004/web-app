@@ -1,29 +1,31 @@
 export const data = [
-	{
-		title: "Home",
-		url: "#Home",
+	{	
+		to: "/",
+		text: "Home",
+		id: "home"
 	},
 	{
-		title: "About Us",
-		url: "#Aboutus",
+		to: "/aboutus",
+		text: "About Us",
 	},
 	{
-		title: "Blog",
-		url: "#Blog",
+		text: "Blog",
+		to: "/blog",
 	},
 	{
-		title: "Contact",
-		url: "#Contact",
+		text: "Contact",
+		to: "/contact",
 	},
 	{
-		title: "Checking order",
-		url: "#Checking",
+		text: "Checking order",
+		to: "/checking",
 	},
 ];
 
 export const Sign = [
 	{
-		title: "Sign Up",
-		url: "signup"
+		to: "/signup",
+		text: "Sign Up"
+		
 	}
 ]
