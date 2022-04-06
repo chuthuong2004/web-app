@@ -1,4 +1,6 @@
 import React, {useEffect} from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Navbar from './components/Navbar/Navbar'
 import Background from './components/Background/Background'
 import Services from './components/Services/Services'
@@ -9,9 +11,11 @@ import Footer from '../src/components/Footer/Footer'
 import scrollreveal from "scrollreveal";
 import Blog from './components/Blog/Blog'
 import Evaluate from './components/Evaluate/Evaluate'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import SignUp from './Pages/SignupPage'
 import GlobalStyle from './globalStyles'
+
+//Pages
+import SignUp from './Pages/SignupPage'
+import About from "./Pages/AboutPages"
 
 
 
@@ -44,6 +48,7 @@ function App () {
         <Navbar />
         <Routes>
           <Route path="/signup" exact component={<SignUp />} />
+          <Route path='/about' exact  component={<About/>} />
         </Routes>
         <Background />
         <Services />

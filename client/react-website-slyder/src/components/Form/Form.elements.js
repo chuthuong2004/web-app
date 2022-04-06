@@ -4,12 +4,14 @@ import { motion } from 'framer-motion';
 export const FormSection = styled.div`
 	color: #fff;
 	padding: 160px 0;
-	background: ${({ inverse }) => (inverse ? '#101522' : '#fff')};
-	background: #101522;
+	background: ${({ inverse }) => (inverse ? '#ccc' : '#fff')};
+	background: #ccc;
 `;
 
 export const FormTitle = styled.h1`
 	margin-bottom: 24px;
+	margin-top: 24px;
+	color: #000;
 	font-size: 48px;
 	line-height: 1.1;
 	font-weight: 600;
@@ -113,6 +115,7 @@ export const FormButton = styled.button`
 	border-radius: 4px;
 	background: none;
 	margin-top: 1.5rem;
+	margin-bottom: 24px;
 	white-space: nowrap;
 	/* color: #fff; */
 	outline: none;
