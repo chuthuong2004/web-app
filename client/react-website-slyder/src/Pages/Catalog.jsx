@@ -1,20 +1,23 @@
-import React, {useEffect, useState, useCallback} from 'react'
+import React, {useEffect, useState, useCallback, useRef} from 'react'
 import categoryApi from '../api/categoryApi'
 import productApi from '../api/productApi'
-import imgItem from '../components/Images/Destination1_1.png'
-import imgItem2 from '../components/Images/Destination_3.png'
 import Grid from '../components/Grid/Grid'
 import Checkbox from '../components/Checkbox/Checkbox'
+import InfinityList from '../components/InfinityList/InfinityList'
 
 const Catalog = () => {
+
+  const [productList, setProductList] = useState([])
   
   const [products, setProducts] = useState([])
+  
   const [category, setCategory] = useState([])
 
 
 
+
   const initFilter = {
-    category: [],
+    category: []
   }
 
   const [filter, setFilter] = useState(initFilter)
@@ -35,13 +38,13 @@ const Catalog = () => {
 
   const  updateProducts = useCallback(
     () => {
-      let temp= products
+      let temp= productList
       if (filter.category.length > 0) {
-        temp = temp.filter(e => filter.category.includes(e.category))
+        temp = temp.filter(e => filter.category.includes(e.category._id))
       }
       setProducts(temp)
     },
-    [filter, setProducts],
+    [filter, productList],
   )
 
   useEffect(() => {
@@ -63,8 +66,7 @@ const Catalog = () => {
         const responseProduct = await productApi.getAll(params)
         setCategory(responseCategory)
         setProducts(responseProduct)
-        console.log(responseCategory)
-        console.log(responseProduct)
+        setProductList(responseProduct)
       } catch (error) {
         console.log('Failed: ', error)
       }
@@ -72,25 +74,24 @@ const Catalog = () => {
 
     fetchProductList()
   }, []);
+
+  const filterRef= useRef(null)
+
+  const showHideFilter = () => filterRef.current.classList.toggle('active')
   
   // productApi.getAll().then(response => console.log(response))
-  const listProduct = products.map(item => (
-    <div className="product-card" key={item._id}>
-      <div className="product-card__image">
-        <img src={imgItem} />
-        <img src={imgItem2} />
-      </div>
-      <h3 className="product-card__name">{item.name}</h3>
-      <p className="product-card__price">{item.price*(100-item.discount)/100} Vnđ <span className="product-card__price__old">{item.price}</span></p>
-    </div>
-  ))
   return (
+    <>
     <div className="catalog">
-      {console.log(filter)}
-        <div className="catalog__filter">
+        <div className="catalog__filter" ref={filterRef}>
+        <div className="catalog__filter__toggle">
+          <div className='catalog__filter__close' onClick={()=> showHideFilter()}>
+            <i className="bx bx-left-arrow-alt">Thu gọn</i>
+          </div>
+        </div>
           <div className="catalog__filter__widget">
-            <div className="catalog__filter__widget__title">
-              Danh muc san pham
+            <div className="catalog__filter__widget__title"> 
+              Danh mục sản phẩm
             </div>
             <div className="catalog__filter__widget__content">
               {
@@ -107,21 +108,24 @@ const Catalog = () => {
         </div>
           <div className="catalog__filter__widget">
               <div className="catalog__filter__widget__content">
-                  <button onClick={clearFilter}>Xoá bộ lọc</button>
+                  <div className="catalog__filter__widget__content__button"
+                    onClick={clearFilter}>
+                    <span>Xoá bộ lọc</span>
+                  </div>
              </div>
             </div>
         </div>
+        <div className="catalog__filter__toggle">
+          <div className="catalog__filter__toggle__often" onClick={() => showHideFilter()}>Bộ lọc</div>
+        </div>
         <div className="catalog__content">
-            <Grid
-              gap={20}
-              col={4}
-              mdCol={2}
-              smCol={1}
-               >
-              {listProduct}
-            </Grid>
+            
+            <InfinityList 
+              data={products}
+            />
         </div>
     </div>
+    </>
   )
 }
 

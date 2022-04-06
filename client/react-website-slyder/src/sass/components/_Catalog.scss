@@ -69,16 +69,39 @@
 
 .catalog {
     @include flex(flex-start, flex-start);
+    @include tablet {
+        flex-direction: column;
+    }
     &__filter{
         width: 20%;
         @include tablet {
-            width:unset;
+            width: max-content;
+            height: 100vh;
+            background-color: $main-bg;
+            padding: 1rem;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 100;
+            box-shadow:$box-shadow;
+            transform: translateX(-100%);
+            transition: transform .3s ease;
         }
+
+        @include mobile {
+            top: 0;
+
+        }
+
+        &.active {
+            transform: translateX(0);
+        }
+
         &__widget{
             margin-bottom: 2rem;   
             
             &__title {
-                font-size: 1.25rem;
+                font-size: 1rem;
                 font-weight: 600;
                 text-transform: capitalize;
                 margin-bottom: 16px;
@@ -87,13 +110,39 @@
                 color: $txt-second-color;
                 
                 &__item {
+                    font-size: 12px;
                     margin-bottom: 13px;
+                }
+
+                &__button {
+                    font-size:14px;
+                    font-weight: bold;
+                    margin-left: 10%;
+                    text-transform: uppercase;
+                    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+                    cursor: pointer;
+                    background-color: rgb(83, 74, 116);
+                    width: 40%;
+                    text-align: center;
+
+                    padding: 7px;
+
+                    &:hover{
+                        background-color: rgb(25, 47, 61);
+                        transform: scale(1);
+                    }
                 }
             }
         }
 
         
-
+    &__close {
+        background-color: rgb(32, 30, 30);
+        width: 40%;
+        color: #fff;
+        text-align: center;
+        padding: 2px;
+    }
         
     }
 
@@ -101,6 +150,23 @@
         flex-grow:1;
         @include tablet {
             width: 100%;
+        }
+    }
+
+    &__filter__toggle {
+        display: none;
+
+        @include tablet {
+            display: block;
+            margin-bottom: 2rem;
+        }
+
+        &__often {
+            background-color: rgb(32, 30, 30);
+            padding: 5px;
+            width: 100%;
+            color: #fff;
+            text-align: center;
         }
     }
 }
