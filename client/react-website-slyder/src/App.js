@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar/Navbar'
@@ -19,7 +19,7 @@ import About from "./Pages/AboutPages"
 
 
 
-function App () {
+function App() {
   useEffect(() => {
     const sr = scrollreveal({
       origin: "top",
@@ -44,20 +44,20 @@ function App () {
   }, []);
   return (
     <Router>
-        <GlobalStyle />
-        <Navbar />
-        <Routes>
-          <Route path="/signup" exact component={<SignUp />} />
-          <Route path='/about' exact  component={<About/>} />
-        </Routes>
-        <Background />
-        <Services />
-        <Recommend />
-        <ScrollToTop />
-        <Testimonail />
-        <Blog />
-        <Evaluate />
-        <Footer />
+      <GlobalStyle />
+      <Navbar />
+      <Routes>
+        <Route path="/SignUp" element={<SignUp />} />
+        <Route path='/About' element={<About />} />
+      </Routes>
+      <Background />
+      <Services />
+      <Recommend />
+      <ScrollToTop />
+      <Testimonail />
+      <Blog />
+      <Evaluate />
+      <Footer />
     </Router>
   )
 }

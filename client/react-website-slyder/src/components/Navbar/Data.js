@@ -1,11 +1,12 @@
+
 export const data = [
-	{	
+	{
 		to: "/",
 		text: "Home",
-		id: "home"
+		id: "home",
 	},
 	{
-		to: "/aboutus",
+		to: "/About",
 		text: "About Us",
 	},
 	{
@@ -24,8 +25,7 @@ export const data = [
 
 export const Sign = [
 	{
-		to: "/signup",
-		text: "Sign Up"
-		
+		to: "/SignUp",
+		text: "Sign Up",
 	}
 ]

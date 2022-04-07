@@ -61,7 +61,7 @@ export default function Navbar() {
                 </li>
               )
           })}
-          <button><NavLink to="/sign-up" onClick={() => setNavbarState(false)}>Sign Up</NavLink></button>
+          <button><NavLink to="/SignUp" onClick={() => setNavbarState(false)}>Sign Up</NavLink></button>
         </ul>
       </ResponsiveNav>
     </>
