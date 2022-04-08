@@ -5,7 +5,6 @@ export const FormSection = styled.div`
 	color: #fff;
 	padding: 160px 0;
 	background: ${({ inverse }) => (inverse ? '#ccc' : '#fff')};
-	background: #ccc;
 `;
 
 export const FormTitle = styled.h1`
@@ -28,6 +27,10 @@ export const FormColumn = styled.div`
 	padding: ${({ small }) => (small ? '0 50px' : '0 15px')};
 	flex: 1;
 	max-width: 60%;
+	border: 3px solid;
+    border-image-source: linear-gradient(to right, #ccc, #c471ed, #000); 
+    border-image-slice :1;
+	box-shadow: 5px 10px 10px #ccc;
 	display: flex;
 	justify-content: center;
 	align-items: center;

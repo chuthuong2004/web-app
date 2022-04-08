@@ -1,6 +1,6 @@
-import about1 from "../Images/about1.jpg"
-import about2 from "../Images/about2.jpg"
-import about3 from "../Images/about3.jpg"
+import about1 from "../../Images/about1.jpg"
+import about2 from "../../Images/about2.jpg"
+import about3 from "../../Images/about3.jpg"
 
 export const AboutData = [
     {

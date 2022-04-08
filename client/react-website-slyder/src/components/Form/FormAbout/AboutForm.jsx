@@ -4,9 +4,9 @@ import {
   ContentAbout,
   AboutHeadding,
   AboutInner
-} from './AboutForm.element'
+} from '../FormAbout/AboutForm.element'
 import {AboutData, data} from "./AboutData"
-import Background from "../Images/background.jpg"
+import Background from "../../Images/background.jpg"
 
 const AboutForm = () => {
   return (

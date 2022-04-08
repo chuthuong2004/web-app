@@ -1,12 +1,13 @@
 import styled from "styled-components"
 
 export const ContentAbout = styled.div`
-    margin-top: 84px;
+    
 `
 
 export const AboutBackground = styled.div`
     width: 100%;
     img{
+        margin-top: 84px;
         width: 100%;
         max-height: 30vh;
     }
@@ -15,7 +16,8 @@ export const AboutBackground = styled.div`
 
 export const AboutHeadding = styled.div`
     text-align: center;
-    padding: 4rem 18rem;
+    padding: 0 18rem;
+    padding-top: 4rem;
     opacity: 0.8;
     font-size: 1rem;
     line-height: 1.6;
@@ -26,16 +28,17 @@ export const AboutHeadding = styled.div`
 
 export const AboutInner = styled.div`
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 
     .about{
         img{
-            max-width: 70vh;
+            
         }
         .about_item{
             margin-top: 12px;
             
             p{
+                margin-bottom: 4rem;
                 font-size: 1rem;
                 text-align: center;
                 font-weight: 700;

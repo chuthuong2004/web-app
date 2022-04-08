@@ -10,8 +10,8 @@ import {
 	FormMessage,
 	FormButton,
 	FormTitle,
-} from './Form.elements';
-import { Container } from '../../globalStyles';
+} from '../FormSign/Form.elements';
+import { Container } from '../../../globalStyles';
 import validateForm from './validateForm';
 
 const Form = () => {
@@ -78,7 +78,7 @@ const Form = () => {
 								</FormInputRow>
 							))}
 
-							<FormButton type="submit">Signup</FormButton>
+							<FormButton type="submit">Sign up</FormButton>
 						</FormWrapper>
 						{error && (
 							<FormMessage

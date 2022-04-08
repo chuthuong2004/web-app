@@ -1,10 +1,10 @@
 import React from 'react'
-import About from "../components/AboutForm/AboutForm"
+import About from "../components/Form/FormAbout/AboutForm"
 
 const AboutPages = () => {
   return (
     <>
-        <About/>
+      <About />
     </>
   )
 }
