@@ -455,4 +455,8 @@ input:checked ~ .custom-checkbox__checkmark {
 }
 input:checked ~ .custom-checkbox__checkmark > i {
   transform: scale(1);
+}
+
+.product {
+  padding-top: 100px;
 }/*# sourceMappingURL=index.css.map */

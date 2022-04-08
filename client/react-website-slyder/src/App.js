@@ -12,6 +12,7 @@ import About from "./Pages/AboutPages"
 import Home from "./Pages/HomePage"
 import Blog from './components/Blog/Blog';
 import Catalog from "./Pages/Catalog"
+import Product from './Pages/Product'
 
 
 
@@ -26,6 +27,7 @@ function App() {
         <Route path='/About' element={<About />} />
         <Route path="/Blog" element={<Blog />} />
         <Route path="/Catalog" element={<Catalog />} />
+        <Route path="/Catalog/:slug" element={<Product />} />
       </Routes>
       <Footer />
     </Router>
