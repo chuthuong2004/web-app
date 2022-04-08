@@ -3,6 +3,7 @@ import cart from '../Images/cart.png'
 import data from '../Recommend/Data'
 import packages from '../Recommend/Packages'
 import { Content } from './Recommend.element';
+import {Link} from 'react-router-dom'
 
 export default function Recommend() {
   
@@ -41,7 +42,7 @@ export default function Recommend() {
           );
         })}
       </div>
-      <button>Xem tất cả <i class="IconButton fa-solid fa-angle-right"></i></button>
+      <Link to="/catalog"><button>Xem tất cả <i class="IconButton fa-solid fa-angle-right"></i></button></Link>
     </Content>
   );
 }

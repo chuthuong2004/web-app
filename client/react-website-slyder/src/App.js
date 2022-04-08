@@ -11,32 +11,11 @@ import SignUp from './Pages/SignupPage'
 import About from "./Pages/AboutPages"
 import Home from "./Pages/HomePage"
 import Blog from './components/Blog/Blog';
+import Catalog from "./Pages/Catalog"
 
 
 
 function App() {
-  useEffect(() => {
-    const sr = scrollreveal({
-      origin: "top",
-      distance: "80px",
-      duration: 2000,
-      reset: true,
-    });
-    sr.reveal(
-      `
-        nav,
-        #hero,
-        #services,
-        #recommend,
-        #testimonials,
-        footer
-        `,
-      {
-        opacity: 0,
-        interval: 300,
-      }
-    );
-  }, []);
   return (
     <Router>
       <GlobalStyle />
@@ -46,6 +25,7 @@ function App() {
         <Route path="/SignUp" element={<SignUp />} />
         <Route path='/About' element={<About />} />
         <Route path="/Blog" element={<Blog />} />
+        <Route path="/Catalog" element={<Catalog />} />
       </Routes>
       <Footer />
     </Router>
