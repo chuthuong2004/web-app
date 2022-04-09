@@ -7,35 +7,30 @@ import {
 	FormRow,
 	FormLabel,
 	FormInputRow,
-	FormMessage,
+	LogIn,
+	LogOut,
 	FormButton,
 	FormTitle,
 } from '../FormSign/Form.elements';
 import { Container } from '../../../globalStyles';
 import validateForm from './validateForm';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { loginUser } from './Redux/apiRequest';
 
 const Form = () => {
 	const [name, setName] = useState('');
-	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [email, setEmail] = useState('');
 	const [confirmPass, setConfirmPass] = useState('');
-	const [error, setError] = useState(null);
-	const [success, setSuccess] = useState(null);
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
-	const handleSubmit = (e) => {
+	const handleLogin = (e) => {
 		e.preventDefault();
-		const resultError = validateForm({ name, email, password, confirmPass });
+		const newUser = validateForm({ name, email, password, confirmPass });
 
-		if (resultError !== null) {
-			setError(resultError);
-			return;
-		}
-		setName('');
-		setEmail('');
-		setPassword('');
-		setConfirmPass('');
-		setError(null);
-		setSuccess('Application was submitted!');
+		loginUser(newUser, dispatch, navigate)
 	};
 
 	const messageVariants = {
@@ -64,8 +59,8 @@ const Form = () => {
 			<Container>
 				<FormRow>
 					<FormColumn small>
-						<FormTitle>Sign up</FormTitle>
-						<FormWrapper onSubmit={handleSubmit}>
+						<FormTitle>Register</FormTitle>
+						<FormWrapper onSubmit={handleLogin}>
 							{formData.map((el, index) => (
 								<FormInputRow key={index}>
 									<FormLabel>{el.label}</FormLabel>
@@ -78,27 +73,11 @@ const Form = () => {
 								</FormInputRow>
 							))}
 
-							<FormButton type="submit">Sign up</FormButton>
+							<FormButton type="submit">
+								<LogIn>Register</LogIn>
+								<LogOut>Sign In</LogOut>
+							</FormButton>
 						</FormWrapper>
-						{error && (
-							<FormMessage
-								variants={messageVariants}
-								initial="hidden"
-								animate="animate"
-								error
-							>
-								{error}
-							</FormMessage>
-						)}
-						{success && (
-							<FormMessage
-								variants={messageVariants}
-								initial="hidden"
-								animate="animate"
-							>
-								{success}
-							</FormMessage>
-						)}
 					</FormColumn>
 				</FormRow>
 			</Container>

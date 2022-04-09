@@ -115,16 +115,23 @@ export const FormImg = styled.img`
 `;
 
 export const FormButton = styled.button`
-	border-radius: 4px;
 	background: none;
 	margin-top: 1.5rem;
 	margin-bottom: 24px;
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	border: none;
+`;
+
+export const LogIn = styled.button`
+	border-radius: 10px;
 	white-space: nowrap;
-	/* color: #fff; */
 	outline: none;
 	width: 100%;
 	font-size: 1.4rem;
-	padding: 5px 15px;
+	padding: 4px 32px;
+	margin-right: 14px;
 	border: 2px solid black;
 	cursor: pointer;
 	position: relative;
@@ -135,4 +142,24 @@ export const FormButton = styled.button`
 		transition: background-color 0.4s ease-in;
 		background-color: black;
 	}
-`;
+`
+
+export const LogOut = styled.button`
+	border-radius: 10px;
+	white-space: nowrap;
+	outline: none;
+	margin-left: 14px;
+	width: 100%;
+	font-size: 1.4rem;
+	padding: 4px 32px;
+	border: 2px solid black;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+
+	&:hover {
+		color: white;
+		transition: background-color 0.4s ease-in;
+		background-color: black;
+	}
+`
