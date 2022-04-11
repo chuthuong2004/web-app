@@ -64,9 +64,9 @@ const Catalog = () => {
         }
         const responseCategory = await categoryApi.getAll(params)
         const responseProduct = await productApi.getAll(params)
-        setCategory(responseCategory)
-        setProducts(responseProduct)
-        setProductList(responseProduct)
+        setCategory(responseCategory.categories)
+        setProducts(responseProduct.products)
+        setProductList(responseProduct.products)
       } catch (error) {
         console.log('Failed: ', error)
       }
