@@ -22,10 +22,3 @@ export const data = [
 		to: "/checking",
 	},
 ];
-
-export const Sign = [
-	{
-		to: "/SignUp",
-		text: "Sign Up",
-	}
-]

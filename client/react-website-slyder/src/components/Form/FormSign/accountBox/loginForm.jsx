@@ -16,8 +16,8 @@ import { useNavigate } from "react-router-dom";
 export function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext);
 
-  const {username, setUsername} = useState("")
-  const {password, setPassword} = useState("")
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
   const dispatch = useDispatch()
   const navigate = useNavigate()
 

@@ -5,9 +5,12 @@ import {VscChromeClose} from 'react-icons/vsc'
 import logo from '../Images/logo.png'
 import {Nav, ResponsiveNav} from './Navbar.elements';
 import { NavLink } from 'react-router-dom';
-import { data, Sign } from './Data';
+import { data } from './Data';
+import { useSelector } from 'react-redux';
 
 export default function Navbar() {
+
+  const user = useSelector((state) => state.auth.login.currentUser)
 
   const [navbarState, setNavbarState] = useState(false);
 
@@ -27,7 +30,6 @@ export default function Navbar() {
             )}
           </div>
         </div>
-          
         <ul>
           {data.map((el, index) => {
             return(
@@ -42,14 +44,19 @@ export default function Navbar() {
         <div className='IconNavbar'>
           <i className='Fasearch'><FaSearch /></i>
           <i className='FaCartPlus'><FaCartPlus /></i>
-          <button>
-            {Sign.map((el) =>{
-              return(
-                <NavLink to={el.to}>{el.text}</NavLink>
-              )
-            })}
-          </button>
         </div>
+
+        {user? (
+          <>
+            <p className='navbar-user'>Hi, <span>{user.currentUser}</span></p>
+            <NavLink to="/SignIn">Log out</NavLink>
+          </>
+        ) : (
+          <>
+            <NavLink to="/SignUp">Sign Up</NavLink>
+            <NavLink to="/SignIn">Sign In</NavLink>
+          </>
+        )}
       </Nav>
       <ResponsiveNav state={navbarState}>
         <ul>
