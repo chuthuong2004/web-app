@@ -51,6 +51,7 @@ export const Nav = styled.div`
     }
 
     .IconNavbar{
+        display: flex;
         .Fasearch, .FaCartPlus{
             font-size: 1rem;
             padding: 0 0.8rem;
@@ -68,31 +69,89 @@ export const Nav = styled.div`
                 opacity: 1;
             }
         }
+    }
 
-        button{
-            margin-left: 1.2rem;
-            cursor: pointer;
-            background-color: #DCDCDC;
+    .button-log{
+        margin-left: 1.2rem;
+        cursor: pointer;
+    
+        .signup{
             padding: 0.5rem 2rem;
             border-radius: 1rem;
+            background-color: #DCDCDC;
             border: none;
+            margin-right: 8px;
             text-transform: uppercase;
             font-size: 1.1rem;
             letter-spacing: 0.1rem;
-            transition: 0.3s ease-in-out;
+            transition: 0.4s ease-in-out;
             align-items: center;
             justify-content: center;
-
-            a{
-                text-decoration: none;
-                color: #000;
-            }
-
-            &:hover button a{
+            
+            &:hover{
                 background-color: #000;
                 color: #fff;
             }
         }
+
+        .rigister{
+            padding: 0.5rem 2rem;
+            border-radius: 1rem;
+            background-color: #DCDCDC;
+            border: none;
+            margin-right: 8px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            letter-spacing: 0.1rem;
+            transition: 0.4s ease-in-out;
+            align-items: center;
+            justify-content: center;
+            &:hover{
+                background-color: #000;
+                color: #fff;
+            }
+        }
+    }
+
+    .button-logout{
+
+        .signout{
+            padding: 0.5rem 2rem;
+            border-radius: 1rem;
+            background-color: #DCDCDC;
+            border: none;
+            margin-right: 8px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            letter-spacing: 0.1rem;
+            transition: 0.4s ease-in-out;
+            align-items: center;
+            justify-content: center;
+            margin-left: 0.8rem ;
+
+            &:hover{
+                background-color: #000;
+                color: #fff;
+            }
+        }
+
+        .Icon-user{
+                font-size: 1rem;
+                padding: 0 0.8rem;
+                text-align: center;
+                margin-top: auto;
+                margin-bottom: auto;
+                line-height: 71px;
+                cursor: pointer;
+                opacity: 0.4;
+
+                &:hover{
+                    cursor: pointer;
+                    transition: 0.1s ease-in-out;
+                    color: #023e83;
+                    opacity: 1;
+                }
+            }
     }
     @media screen and (min-width: 280px) and (max-width: 1080px) {
         
@@ -129,7 +188,27 @@ export const Nav = styled.div`
             }
         }
 
-        ul,button{
+        .button-log{
+            .signup{
+                display: none;
+            }
+            .rigister{
+                display: none;
+            }
+        }
+
+        .button-logout{
+            .Icon-user{
+                font-size: 1.6rem;
+                margin-right: 14px;
+            }
+
+            .signout{
+                display: none;
+            }
+        }
+
+        ul{
             display: none;
         }
     }
@@ -179,15 +258,10 @@ export const ResponsiveNav = styled.div`
     }
 
     button{
+        margin-right: 8px;
         height: 30px;
         width: 30%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         cursor: pointer;
-        margin-left: auto;
-        margin-right: auto;
-        color: #ccc;
         list-style: none;
         background-color: #023e8a;
         border: none;
@@ -196,6 +270,40 @@ export const ResponsiveNav = styled.div`
         &:hover{
             background-color: #ccc;
             color: #000;
+        }
+    }
+
+    .button-log{
+        display: flex;
+        justify-content: center;
+        .signup{
+            color: #fff;
+            margin-right: 4px;
+        }
+    }
+
+    .button-logout{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        .signout{
+            text-align: center;
+            margin-right: 8px;
+            color: #fff;
+            border-radius: 10px;
+            height: 30px;
+            width: 30%;
+            cursor: pointer;
+            list-style: none;
+            background-color: #023e8a;
+            border: none;
+            transition: 0.3s ease-in-out;
+
+            &:hover{
+                background-color: #ccc;
+                color: #000;
+            }
         }
     }
 `;

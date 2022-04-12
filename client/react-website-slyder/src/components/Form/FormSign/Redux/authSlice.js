@@ -21,7 +21,7 @@ const authSlice = createSlice({
         },
         loginSuccess: (state, action) => {
             state.login.isFetching = false;
-            state.login.currenUser = action.payload;
+            state.login.currentUser = action.payload
             state.login.error = false;
         },
         loginFailed: (state) => {
@@ -35,6 +35,7 @@ const authSlice = createSlice({
         signupSuccess: (state) => {
             state.signup.isFetching = false;
             state.signup.error = false;
+            alert("Đã đang kí thành công")
             state.signup.success = true;
         },
         signupFailed: (state) => {
@@ -44,6 +45,8 @@ const authSlice = createSlice({
         }
     }
 })
+
+
 
 export const {
     loginStart,

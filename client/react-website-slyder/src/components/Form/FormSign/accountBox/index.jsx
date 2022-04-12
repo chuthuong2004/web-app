@@ -17,6 +17,10 @@ const BoxContainer = styled.div`
   box-shadow: 0 5px 10px rgba(15, 15, 15, 0.28);
   position: relative;
   overflow: hidden;
+
+  @media screen and (min-width: 280px) and (max-width: 1080px){
+    width: 100%;
+  }
 `;
 
 const TopContainer = styled.div`
@@ -45,6 +49,7 @@ const BackDrop = styled(motion.div)`
     rgba(241, 196, 15, 1) 20%,
     rgba(243, 172, 18, 1) 100%
   );
+
 `;
 
 const HeaderContainer = styled.div`
@@ -90,9 +95,10 @@ const backdropVariants = {
     height: "550px",
     borderRadius: "50%",
     transform: "rotate(60deg)",
+
+    
   },
 };
-
 const expandingTransition = {
   type: "spring",
   duration: 2.3,

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { FaSearch,FaCartPlus } from 'react-icons/fa';
+import { FaSearch,FaCartPlus, FaUserCircle } from 'react-icons/fa';
 import {AiOutlineMenu} from 'react-icons/ai'
 import {VscChromeClose} from 'react-icons/vsc'
 import logo from '../Images/logo.png'
@@ -44,19 +44,21 @@ export default function Navbar() {
         <div className='IconNavbar'>
           <i className='Fasearch'><FaSearch /></i>
           <i className='FaCartPlus'><FaCartPlus /></i>
+          {user? (
+            <>
+              <div className='button-logout'>
+                <i className='Icon-user'><FaUserCircle /></i>
+                <NavLink className="signout" to="/SignUp">Log out</NavLink>
+              </div>
+            </>
+            ) : (
+            <>
+              <div className='button-log'>
+                <NavLink className="signup" to="/SignUp">Sign Up</NavLink>
+              </div>
+            </>
+          )}
         </div>
-
-        {user? (
-          <>
-            <p className='navbar-user'>Hi, <span>{user.currentUser}</span></p>
-            <NavLink to="/SignIn">Log out</NavLink>
-          </>
-        ) : (
-          <>
-            <NavLink to="/SignUp">Sign Up</NavLink>
-            <NavLink to="/SignIn">Sign In</NavLink>
-          </>
-        )}
       </Nav>
       <ResponsiveNav state={navbarState}>
         <ul>
@@ -68,7 +70,19 @@ export default function Navbar() {
                 </li>
               )
           })}
-          <button><NavLink to="/SignUp" onClick={() => setNavbarState(false)}>Sign Up</NavLink></button>
+          {user? (
+            <>
+              <div className='button-logout'>
+                <button><NavLink className="signout" to="/" onClick={() => setNavbarState(false)}>Log out</NavLink></button>
+              </div>
+            </>
+            ) : (
+            <>
+              <div className='button-log'>
+                <button><NavLink className="signup" to="/SignUp" onClick={() => setNavbarState(false)} >Sign Up</NavLink></button>
+              </div>
+            </>
+          )}
         </ul>
       </ResponsiveNav>
     </>

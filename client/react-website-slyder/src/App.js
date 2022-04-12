@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar/Navbar'
 import Footer from '../src/components/Footer/Footer'
-import scrollreveal from "scrollreveal";
 import GlobalStyle from './globalStyles'
 
 //Pages
@@ -27,7 +26,7 @@ function App() {
         <Route path='/About' element={<About />} />
         <Route path="/Blog" element={<Blog />} />
         <Route path="/Catalog" element={<Catalog />} />
-        <Route path="/Catalog/:slug" element={<Product/>} />
+        <Route path="/Catalog/:slug" element={<Product />} />
       </Routes>
       <Footer />
     </Router>

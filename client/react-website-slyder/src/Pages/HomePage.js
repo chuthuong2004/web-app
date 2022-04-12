@@ -4,8 +4,8 @@ import Services from '../components/Services/Services'
 import Recommend from '../components/Recommend/Recommend'
 import ScrollToTop from '../components/ScrollToTop/ScrollToTop'
 import Testimonail from '../components/Testimonail/Testimonail'
-import scrollreveal from "scrollreveal";
 import Blog from '../components/Blog/Blog'
+import scrollreveal from 'scrollreveal'
 import Evaluate from '../components/Evaluate/Evaluate'
 
 function Home() {
@@ -31,6 +31,7 @@ function Home() {
             }
         );
     }, []);
+
     return (
         <>
             <Background />

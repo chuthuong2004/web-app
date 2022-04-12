@@ -59,7 +59,7 @@ export function SignupForm(props) {
       <Marginer direction="vertical" margin={10} />
       
       <Marginer direction="vertical" margin="1em" />
-      <MutedLink href="/signup">
+      <MutedLink href="#">
         Already have an account?
         <BoldLink href="#" onClick={switchToSignin}>
           Sign in

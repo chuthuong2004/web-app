@@ -12,7 +12,6 @@ export const FormContainer = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 0px 2.5px rgba(15, 15, 15, 0.19);
 `;
 
 export const MutedLink = styled.a`
@@ -56,7 +55,10 @@ export const Input = styled.input`
 
 export const SubmitButton = styled.button`
   width: 50%;
+  margin-left: auto;
+  margin-right: auto;
   padding: 11px 20%;
+  margin-top: 24px;
   color: #fff;
   font-size: 15px;
   font-weight: 600;
