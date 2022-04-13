@@ -4,7 +4,7 @@ import {AiOutlineMenu} from 'react-icons/ai'
 import {VscChromeClose} from 'react-icons/vsc'
 import logo from '../Images/logo.png'
 import {Nav, ResponsiveNav} from './Navbar.elements';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { data } from './Data';
 import { useSelector } from 'react-redux';
 
@@ -43,7 +43,7 @@ export default function Navbar() {
 
         <div className='IconNavbar'>
           <i className='Fasearch'><FaSearch /></i>
-          <i className='FaCartPlus'><FaCartPlus /></i>
+          <Link to='/cart'><i className='FaCartPlus'><FaCartPlus /></i></Link>
           {user? (
             <>
               <div className='button-logout'>

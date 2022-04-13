@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
+import { withRouter } from "react-router";
+import {FaStar} from 'react-icons/fa'
 
 const ProductView = (props) => {
 
@@ -15,6 +17,8 @@ const ProductView = (props) => {
     
     const [quantity, setQuantity] = useState(1)
 
+    const [activeImg, setActiveImg] = useState(0)
+
     const updateQuantity = (type) => {
         if (type === 'plus') {
             setQuantity(quantity +1)
@@ -22,6 +26,26 @@ const ProductView = (props) => {
             setQuantity(quantity - 1 < 1 ? 1 : quantity -1)
         }
     }
+
+    const check = () => {
+        if (color === undefined) {
+            alert("Vui lòng chọn màu sắc!")
+            return false
+        }
+
+        if(size === undefined) {
+            alert("Vui lòng chọn size!")
+            return false
+        }
+
+        return true
+    }
+
+    const addToCart = () => {
+        if (check()) console.log(color, size, quantity)
+    }
+
+
 
     useEffect(() => {
         setPreviewImg(product.images[0].img)
@@ -31,17 +55,18 @@ const ProductView = (props) => {
     }, [product])
 
   return (
+      <>
     <div className="product">
         <div className="product__images">
             <div className="product__images__list">
                 <div className="product__images__list__item" onClick={()=> setPreviewImg(product.images[0].img)}>
-                    <img src={product.images[0].img} alt=""  className="product__images__list__item__img" />
+                    <img src={product.images[0].img} alt=""  onClick={() => setActiveImg(0)} className={`${activeImg === 0 ? 'activeImg' : ''}`} />
                 </div>
-                <div className="product__images__list__item" onClick={()=> setPreviewImg(product.images[1].img)}>
-                    <img src={product.images[1].img} alt=""   />
+                <div className="product__images__list__item" onClick={()=> setPreviewImg(product.images[1].img)} >
+                    <img src={product.images[1].img} alt=""  onClick={() => setActiveImg(1)} className={`${activeImg === 1 ? 'activeImg' : ''}`}/>
                 </div>
                 <div className="product__images__list__item" onClick={()=> setPreviewImg(product.images[2].img)}>
-                    <img src={product.images[2].img} alt=""   />
+                    <img src={product.images[2].img} alt=""  onClick={() => setActiveImg(2)} className={`${activeImg === 2 ? 'activeImg' : ''}`}/>
                 </div>
             </div>
             <div className="product__images__main">
@@ -118,10 +143,31 @@ const ProductView = (props) => {
                 </div>
             </div>
             <div className="product__info__item">
-                <div className="product-description__toggle__button">Thêm vào giỏ hàng</div>
+                <div className="product__info__item__button">
+                    <div className="product__info__item__button__CartButton" onClick={() => addToCart()}>Thêm vào giỏ hàng</div>
+                    <div className="product__info__item__button__BuyButton" >Mua ngay</div>
+                </div>
             </div>
         </div>
     </div>
+    <div className="product-review">
+        <div className="product-review__title">Đánh giá sản phẩm</div>
+        <div className="product-review__list">
+        {product.reviews.map((item) => (
+            <div key={product.id} className="product-review__list__item">
+                <div className="product-review__list__item__user">User: {item.user.username}</div>
+                <div className="product-review__list__item__info">{item.date}</div>
+                <div className="product-review__list__item__comment">{item.content}</div>
+                {
+                    [...Array(item.star)].map(star => (
+                        <FaStar/>
+                    ))
+                }
+            </div>
+        ))}
+        </div>
+    </div>
+    </>
   )
 }
 

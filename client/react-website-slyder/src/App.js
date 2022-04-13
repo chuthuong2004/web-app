@@ -12,6 +12,7 @@ import Home from "./Pages/HomePage"
 import Blog from './components/Blog/Blog';
 import Catalog from "./Pages/Catalog"
 import Product from './Pages/Product'
+import Cart from './Pages/Cart'
 
 
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/Blog" element={<Blog />} />
         <Route path="/Catalog" element={<Catalog />} />
         <Route path="/Catalog/:slug" element={<Product />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
     </Router>

@@ -51,7 +51,7 @@ const Product = props => {
           </div>
         </div>
         <div>
-          <div>
+          <div className="product-container__other">
             Có thể bạn quan tâm
           </div>
           <div>
