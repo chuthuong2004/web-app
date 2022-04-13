@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import Grid from '../Grid/Grid'
+import {Link} from 'react-router-dom'
 
 const InfinityList = props => {
 
@@ -49,7 +50,7 @@ const InfinityList = props => {
     getItems()
     setLoad(false)
     },[load, index, data, props.data])
-
+    console.log(data)
 
   return (
     <div ref={listRef}>
@@ -61,7 +62,8 @@ const InfinityList = props => {
               smCol={1}
                >
               {data.map(item => (
-                <div className="product-card" key={item._id}>
+                <Link to={`/catalog/${item.slug}`}>
+                  <div className="product-card" key={item._id}>
                   <div className="product-card__image">
                     <img src={item.images[0].img} />
                     <img src={item.images[1].img} />
@@ -69,6 +71,7 @@ const InfinityList = props => {
                   <h3 className="product-card__name">{item.name}</h3>
                   <p className="product-card__price">{item.price*(100-item.discount)/100} Vnđ <span className="product-card__price__old">{item.price}</span></p>
                 </div>
+                </Link>
               ))}
         </Grid>
     </div>

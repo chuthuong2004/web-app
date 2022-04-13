@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom'
 import productApi from '../api/productApi'
 import Grid from '../components/Grid/Grid'
 import ProductView from '../components/ProductView'
-
+import {Link} from 'react-router-dom'
 
 
 const Product = props => {
@@ -63,7 +63,8 @@ const Product = props => {
             >
               {
                 relatedProducts.map((item, index) => (
-                  <div className="product-card" key={item._id}>
+                  <Link to={`/catalog/${item.slug}`}>
+                    <div className="product-card" key={item._id}>
                     <div className="product-card__image">
                       <img src={item.images[0].img} />
                       <img src={item.images[1].img} />
@@ -71,6 +72,7 @@ const Product = props => {
                     <h3 className="product-card__name">{item.name}</h3>
                     <p className="product-card__price">{item.price*(100-item.discount)/100} Vnđ <span className="product-card__price__old">{item.price}</span></p>
                 </div>
+                  </Link>
                 ))
               }
             </Grid>
