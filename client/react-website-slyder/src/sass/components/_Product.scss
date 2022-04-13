@@ -11,7 +11,7 @@
 
     &__images {
         @include flex(flex-start, flex-start);
-        width: 60%;
+        width: 40%;
         flex-wrap: wrap;
 
         @include tablet {
@@ -27,9 +27,11 @@
 
             &__item {
                 cursor: pointer;
-                
                 img {
-                    height: 20%;
+                    width: 100%;
+                    height: 100px;
+                    object-fit: cover;
+
                 }
             }
         }
@@ -43,8 +45,10 @@
                 position: absolute;
                 top: 0;
                 left: 50%;
-                height: 100%;
-                // transform: translateX(-50%);
+                height: 500px;
+                width: 470px;
+                object-fit: cover;
+                transform: translateX(-40%);
             }
         }
     }
