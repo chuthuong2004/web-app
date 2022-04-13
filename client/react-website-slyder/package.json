@@ -13,6 +13,7 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
+    "formik": "^2.2.9",
     "framer-motion": "^6.2.8",
     "node-sass": "^7.0.1",
     "prop-types": "^15.8.1",
@@ -29,7 +30,8 @@
     "sass": "^1.49.11",
     "scrollreveal": "^4.0.9",
     "styled-components": "^5.3.3",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -7,8 +7,25 @@ import Testimonail from '../components/Testimonail/Testimonail'
 import Blog from '../components/Blog/Blog'
 import scrollreveal from 'scrollreveal'
 import Evaluate from '../components/Evaluate/Evaluate'
+import { useSelector, useDispatch } from "react-redux"
+import { getAllUsers } from "../api/apiRequest"
+import { useNavigate } from 'react-router-dom'
 
 function Home() {
+
+    const user = useSelector((state) => state.auth.login?.currentUser)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const userList = useSelector((state) => state.users.users?.allUsers)
+
+    useEffect(() => {
+        if (!user) {
+            navigate("/SignUp")
+        } if (user?.accessToken) {
+            getAllUsers(user?.accessToken, dispatch)
+        }
+    })
+
     useEffect(() => {
         const sr = scrollreveal({
             origin: "top",
@@ -31,6 +48,8 @@ function Home() {
             }
         );
     }, []);
+
+
 
     return (
         <>
