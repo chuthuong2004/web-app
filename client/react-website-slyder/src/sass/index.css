@@ -648,6 +648,15 @@ input:checked ~ .custom-checkbox__checkmark > i {
   opacity: 0.4;
 }
 
+@media only screen and (max-width: 600px) {
+  .product__images__list__item img {
+    height: 70px;
+    width: 60px;
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
+  }
+}
+
 .product__images__list__item .activeImg {
   opacity: 1;
 }
@@ -672,6 +681,24 @@ input:checked ~ .custom-checkbox__checkmark > i {
           transform: translateX(-40%);
 }
 
+@media only screen and (max-width: 1024px) {
+  .product__images__main img {
+    height: 380px;
+    width: 320px;
+    -webkit-transform: translateX(-40%);
+            transform: translateX(-40%);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .product__images__main img {
+    height: 350px;
+    width: 290px;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
 .product__info {
   margin-left: 10%;
   -webkit-box-flex: 1;
@@ -681,6 +708,14 @@ input:checked ~ .custom-checkbox__checkmark > i {
   position: sticky;
   top: 70px;
   padding-top: 0.75rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .product__info {
+    margin-left: 10%;
+    padding-top: 12%;
+    top: 0;
+  }
 }
 
 .product__info__title {
@@ -696,6 +731,12 @@ input:checked ~ .custom-checkbox__checkmark > i {
   color: #000000;
   font-size: 1.5rem;
   font-weight: 600;
+}
+
+.product__info__item__discount {
+  margin-left: 3%;
+  -webkit-text-decoration-line: line-through;
+          text-decoration-line: line-through;
 }
 
 .product__info__item__title {
@@ -816,6 +857,22 @@ input:checked ~ .custom-checkbox__checkmark > i {
   background-color: #b9c2b5;
 }
 
+@media only screen and (max-width: 1024px) {
+  .product__info__item__button__CartButton {
+    padding: 5px;
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .product__info__item__button__CartButton {
+    margin-top: 5px;
+    width: 45%;
+    padding: 3px;
+    margin-left: 21%;
+  }
+}
+
 .product__info__item__button__BuyButton {
   background-color: red;
   text-align: center;
@@ -830,12 +887,33 @@ input:checked ~ .custom-checkbox__checkmark > i {
   background-color: #eb5656;
 }
 
+@media only screen and (max-width: 1024px) {
+  .product__info__item__button__BuyButton {
+    width: 50%;
+    margin-top: 10%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .product__info__item__button__BuyButton {
+    margin-top: 5px;
+    width: 25%;
+    padding: 5px;
+  }
+}
+
 .product-description {
   width: 100%;
   padding: 2rem 2rem 3rem;
   height: 190px;
   overflow: hidden;
   position: relative;
+}
+
+@media only screen and (max-width: 600px) {
+  .product-description {
+    display: none;
+  }
 }
 
 .product-description.expand {

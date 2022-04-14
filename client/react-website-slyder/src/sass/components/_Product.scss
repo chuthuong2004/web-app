@@ -41,7 +41,11 @@
                     height: 100px;
                     object-fit: cover;
                     opacity: 0.4;
-
+                    @include mobile {
+                        height: 70px;
+                        width: 60px;
+                        transform: translateX(-20%);
+                    }
 
                 }
                 .activeImg{
@@ -63,6 +67,18 @@
                 width: 470px;
                 object-fit: cover;
                 transform: translateX(-40%);
+
+                @include tablet {
+                    height: 380px;
+                    width: 320px;
+                    transform: translateX(-40%);
+                }
+
+                @include mobile {
+                    height: 350px;
+                    width: 290px;
+                    transform: translateX(-50%);
+                }
             }
         }
     }
@@ -72,6 +88,12 @@
         position: sticky;
         top: $header-shrink-height;
         padding-top: 0.75rem;
+
+        @include mobile {
+            margin-left: 10%;
+            padding-top: 12%;
+            top: 0;
+        }
 
         &__title {
             font-size: 1.5rem;
@@ -85,7 +107,14 @@
                 color: $main-color;
                 font-size: 1.5rem;
                 font-weight: 600;
+
             }
+            
+            &__discount {
+                margin-left: 3%;
+                text-decoration-line: line-through;
+            }
+
 
             &__title{
                 font-size: 1rem;
@@ -163,6 +192,18 @@
                     &:hover {
                         background-color: rgb(185, 194, 181);
                     }
+
+                    @include tablet {
+                        padding: 5px;
+                        width: 60%;
+                    }
+
+                    @include mobile {
+                        margin-top: 5px;
+                        width: 45%;
+                        padding: 3px;
+                        margin-left: 21%;
+                    }
                 }
     
                 &__BuyButton {
@@ -176,6 +217,18 @@
 
                     &:hover {
                         background-color: rgb(235, 86, 86);
+                    }
+
+                    
+                    @include tablet {
+                        width: 50%;
+                        margin-top: 10%;
+                    }
+
+                    @include mobile {
+                        margin-top: 5px;
+                        width: 25%;
+                        padding: 5px;
                     }
                 }
             }
@@ -193,6 +246,10 @@
     height: 190px;
     overflow: hidden;
     position: relative;
+
+    @include mobile {
+        display: none;
+    }
 
     &.expand {
         height: max-content;

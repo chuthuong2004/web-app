@@ -92,7 +92,11 @@ const ProductView = (props) => {
             <h1 className="product__info__title">{product.title}</h1>
             <div className="product__info__item">
                 <span className="product__info__item__price">
-                    {product.price}
+                    {product.price*(100-product.discount)/100}
+                </span>
+                <span>đ</span>
+                <span className="product__info__item__discount">
+                    {product.price}đ
                 </span>
             </div>
             <div className="product__info__item">
