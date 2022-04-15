@@ -8,18 +8,19 @@ const userSlice = createSlice({
             isFetching: false,
             error: false
         },
-        reducers: {
-            getUsersStart: (state) => {
-                state.users.isFetching = true;
-            },
-            getUsersSuccess: (state, action) => {
-                state.users.isFetching = false
-                state.users.allUsers = action.payload
-            },
-            getUsersFailse: (state) => {
-                state.users.isFetching = false;
-                state.users.error = true
-            }
+        msg: "",
+    },
+    reducers: {
+        getUsersStart: (state) => {
+            state.users.isFetching = true;
+        },
+        getUsersSuccess: (state, action) => {
+            state.users.isFetching = false
+            state.users.allUsers = action.payload
+        },
+        getUsersFailse: (state) => {
+            state.users.isFetching = false;
+            state.users.error = true
         }
     }
 })

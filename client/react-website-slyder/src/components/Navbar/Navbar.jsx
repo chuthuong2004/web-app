@@ -4,15 +4,24 @@ import {AiOutlineMenu} from 'react-icons/ai'
 import {VscChromeClose} from 'react-icons/vsc'
 import logo from '../Images/logo.png'
 import {Nav, ResponsiveNav} from './Navbar.elements';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { data } from './Data';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutUsers } from '../../api/apiRequest';
+import { createAxios } from '../Form/FormSign/Redux/createInstance';
+import { logoutSuccess } from '../Form/FormSign/Redux/authSlice';
 
 export default function Navbar() {
 
+  const dispastch = useDispatch()
+  const navigate = useNavigate()
   const user = useSelector((state) => state.auth.login.currentUser)
-
+  const accseeToken = user?.accseeToken
+  let axiosJWT = createAxios(user, dispastch, logoutSuccess)
   const [navbarState, setNavbarState] = useState(false);
+  const handleLogout = () => {
+    logoutUsers(dispastch, navigate, accseeToken, axiosJWT);
+  }
 
   return (
     <>
@@ -48,7 +57,7 @@ export default function Navbar() {
             <>
               <div className='button-logout'>
                 <i className='Icon-user'><FaUserCircle /></i>
-                <NavLink className="signout" to="/SignUp">Log out</NavLink>
+                <NavLink className="signout" to="#" onClick={handleLogout}>Log out</NavLink>
               </div>
             </>
             ) : (
@@ -73,7 +82,7 @@ export default function Navbar() {
           {user? (
             <>
               <div className='button-logout'>
-                <button><NavLink className="signout" to="/" onClick={() => setNavbarState(false)}>Log out</NavLink></button>
+                <button onClick={handleLogout}><NavLink className="signout" to="/" onClick={() => setNavbarState(false)}>Log out</NavLink></button>
               </div>
             </>
             ) : (

@@ -4,11 +4,14 @@ import './index.css';
 import App from './App';
 import './sass/index.css'
 import { Provider } from "react-redux";
-import store from "./components/Form/FormSign/Redux/store"
+import { store, persistor } from "./components/Form/FormSign/Redux/store"
+import { PersistGate } from 'redux-persist/integration/react';
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <PersistGate loading={null} persistor={persistor}>
+            <App />
+        </PersistGate>
     </Provider>,
     document.getElementById('root')
 );
