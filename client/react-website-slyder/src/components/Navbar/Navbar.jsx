@@ -16,12 +16,16 @@ export default function Navbar() {
   const dispastch = useDispatch()
   const navigate = useNavigate()
   const user = useSelector((state) => state.auth.login.currentUser)
-  const accseeToken = user?.accseeToken
+  const accessToken = user?.accessToken
+  const id = user?._id
   let axiosJWT = createAxios(user, dispastch, logoutSuccess)
   const [navbarState, setNavbarState] = useState(false);
+  
   const handleLogout = () => {
-    logoutUsers(dispastch, navigate, accseeToken, axiosJWT);
+    logoutUsers(dispastch, navigate, id, accessToken, axiosJWT);
   }
+
+
 
   return (
     <>

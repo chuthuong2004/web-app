@@ -8,8 +8,10 @@ export const loginUser = async (user, dispatch, navigate) => {
     try {
         const res = await axios.post(("https://web-api-chuthuong.herokuapp.com/api/v1/auth/login"), user)
         dispatch(loginSuccess(res.data))
+        document.cookie = "refreshToken =" + res.data.accessToken
         console.log(res, user)
         navigate("/")
+        console.log("login" + res.data.accessToken)
     } catch (err) {
         dispatch(loginFailed())
     }
@@ -26,11 +28,11 @@ export const signupUser = async (user, dispatch, navigate) => {
     }
 }
 
-export const getAllUsers = async (accsessToken, dispatch) => {
+export const getAllUsers = async (accessToken, dispatch, axiosJWT) => {
     dispatch(getUsersStart())
     try {
-        const res = await axios.get(("https://web-api-chuthuong.herokuapp.com/api/v1/admin/user"), {
-            headers: { token: `Bearer ${accsessToken}` }
+        const res = await axiosJWT.get(("https://web-api-chuthuong.herokuapp.com/api/v1/admin/users"), {
+            headers: { token: `Bearer ${accessToken}` }
         })
         dispatch(getUsersSuccess(res.data))
 
@@ -39,10 +41,10 @@ export const getAllUsers = async (accsessToken, dispatch) => {
     }
 }
 
-export const logoutUsers = async (dispatch, navigate, accessToken) => {
+export const logoutUsers = async (dispatch, navigate, id, accessToken, axiosJWT) => {
     dispatch(logoutStart())
     try {
-        await axios.post("https://web-api-chuthuong.herokuapp.com/api/v1/auth/logout", {
+        await axiosJWT.post("https://web-api-chuthuong.herokuapp.com/api/v1/auth/logout", id, {
             headers: { token: `Bearer ${accessToken}` }
         })
         dispatch(logoutSuccess())

@@ -27,6 +27,7 @@ export const createAxios = (user, dispatch, stataSuccess) => {
                 };
                 dispatch(stataSuccess(refreshUser))
                 config.headers["token"] = "Bearer" + data.accessToken
+
             }
             return config
         },
