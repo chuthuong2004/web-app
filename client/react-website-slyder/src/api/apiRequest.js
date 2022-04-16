@@ -8,7 +8,7 @@ export const loginUser = async (user, dispatch, navigate) => {
     try {
         const res = await axios.post(("https://web-api-chuthuong.herokuapp.com/api/v1/auth/login"), user)
         dispatch(loginSuccess(res.data))
-        document.cookie = "refreshToken =" + res.data.accessToken
+        document.cookie = "refreshToken =" + res.data.refreshToken
         console.log(res, user)
         navigate("/")
         console.log("login" + res.data.accessToken)
@@ -41,7 +41,7 @@ export const getAllUsers = async (accessToken, dispatch, axiosJWT) => {
     }
 }
 
-export const logoutUsers = async (dispatch, navigate, id, accessToken, axiosJWT) => {
+export const logoutUsers = async (dispatch, id, navigate, accessToken, axiosJWT) => {
     dispatch(logoutStart())
     try {
         await axiosJWT.post("https://web-api-chuthuong.herokuapp.com/api/v1/auth/logout", id, {

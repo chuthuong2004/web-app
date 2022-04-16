@@ -10,17 +10,18 @@ import Evaluate from '../components/Evaluate/Evaluate'
 import { useSelector, useDispatch } from "react-redux"
 import { getAllUsers } from "../api/apiRequest"
 import { useNavigate } from 'react-router-dom'
-import { createAxios } from "../components/Form/FormSign/Redux/createInstance"
+import { createAxios } from '../components/Form/FormSign/Redux/createInstance'
 import { loginSuccess } from '../components/Form/FormSign/Redux/authSlice'
+
 
 function Home() {
 
     const user = useSelector((state) => state.auth.login?.currentUser)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    let axiosJWT = createAxios(user, dispatch, loginSuccess)
-    // const msg = useSelector((state) => state.users?.msg)
+    const msg = useSelector((state) => state.users?.msg)
     // const userList = useSelector((state) => state.users.users?.allUsers)
+    let axiosJWT = createAxios(user, dispatch, loginSuccess)
 
     useEffect(() => {
         if (!user) {
@@ -53,6 +54,7 @@ function Home() {
         );
     }, []);
 
+    console.log(`msg: ${msg}`)
     console.log(`Your rose: ${user?.isAdmin ? 'Admin' : 'User'}`)
     return (
         <>
