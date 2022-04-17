@@ -11,7 +11,7 @@ export const loginUser = async (user, dispatch, navigate) => {
         document.cookie = "refreshToken =" + res.data.refreshToken
         console.log(res, user)
         navigate("/")
-        console.log("login" + res.data.accessToken)
+        console.log("login tra acc" + res.data.accessToken)
     } catch (err) {
         dispatch(loginFailed())
     }
@@ -47,6 +47,7 @@ export const logoutUsers = async (dispatch, id, navigate, accessToken, axiosJWT)
         await axiosJWT.post("https://web-api-chuthuong.herokuapp.com/api/v1/auth/logout", id, {
             headers: { token: `Bearer ${accessToken}` }
         })
+        document.cookie = "refreshToken=;expires=Thu, 01 Jan 2022 00:00:00 GMT";
         dispatch(logoutSuccess())
         navigate("/SignUp")
     } catch {
