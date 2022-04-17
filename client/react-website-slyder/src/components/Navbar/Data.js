@@ -2,7 +2,7 @@
 export const data = [
 	{
 		to: "/",
-		text: "Home",
+		text: "Shop",
 		id: "home",
 	},
 	{
@@ -22,3 +22,37 @@ export const data = [
 		to: "/checking",
 	},
 ];
+
+export const data_navbar = [
+	{
+		to: "/",
+		text: "Top",
+		id: "top",
+	},
+	{
+		to: "/",
+		text: "T-Shirt",
+	},
+	{
+		to: "/",
+		text: "Top",
+	},
+	{
+		to: "/",
+		text: "Top",
+	},
+	{
+		to: "/",
+		text: "Hoodie",
+	},
+	{
+		to: "/",
+		text: "Top",
+		id: "Botton",
+	},
+	{
+		to: "/",
+		text: "Top",
+		id: "top",
+	},
+]

@@ -33,6 +33,17 @@ export const Nav = styled.div`
         list-style-type: none;
         gap: 4rem;
         font-weight: 700;
+
+        .subnav::before{
+            content: "";
+            border-width: 20px 20px;
+            border-style: solid;
+            border-color: transparent transparent #fff;
+            position: absolute;
+            right: 80%;
+            top: -35px;
+            
+        }
         li{
             a{
                 text-decoration: none;
@@ -46,7 +57,37 @@ export const Nav = styled.div`
                     color: #023e83;
                 }
             }
+            &:hover .subnav{
+                display: block;
+            }
+            .subnav{
+                display: none;
+                position: absolute;
+                box-shadow: 0 0px 10px #000;
 
+                li{
+                    color: black;
+                    text-align: center;
+                    line-height: 64px;
+                    min-width: 18rem;
+                    
+                    background-color: #fff;
+                    
+                    .subnav-two{
+                        display: block;
+                        top: 0;
+                        left: 300px;
+                        position: absolute;
+                        li{
+                            display: block;
+                        }
+                    }
+                }
+
+                &:hover>li .subnav-two{
+                    display: block;
+                }
+            }
         }
     }
 
@@ -74,6 +115,7 @@ export const Nav = styled.div`
     .button-log{
         margin-left: 1.2rem;
         cursor: pointer;
+        /* display: none; */
     
         .signup{
             padding: 0.5rem 2rem;
@@ -220,7 +262,7 @@ export const ResponsiveNav = styled.div`
   z-index: 10;
   top: ${({ state }) => (state ? "80px" : "-400px")};
   background-color: white;
-  height: 30vh;
+  height: 40vh;
   width: 100%;
   margin-left: -2rem;
   margin-right: -2rem;

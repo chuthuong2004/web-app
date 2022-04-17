@@ -95,9 +95,8 @@ const backdropVariants = {
     height: "550px",
     borderRadius: "50%",
     transform: "rotate(60deg)",
-
-    
   },
+
 };
 const expandingTransition = {
   type: "spring",

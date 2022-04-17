@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { FaSearch,FaCartPlus, FaUserCircle } from 'react-icons/fa';
+import { FaSearch,FaCartPlus, FaUserCircle, FaCaretDown } from 'react-icons/fa';
 import {AiOutlineMenu} from 'react-icons/ai'
 import {VscChromeClose} from 'react-icons/vsc'
 import logo from '../Images/logo.png'
@@ -48,14 +48,31 @@ export default function Navbar() {
           </div>
         </div>
         <ul>
-          {data.map((el, index) => {
-            return(
-              <li key ={index}><NavLink to={el.to}>
-                  {el.text}
-                </NavLink>
-              </li>
-            )
-          })}
+          <li>
+            <NavLink to="/">Shop<FaCaretDown />
+              <ul className='subnav'>
+                <li>
+                  <NavLink to="/">Tops
+                    <ul className='subnav-two'>
+                      <li><NavLink to="/">T-Shirt</NavLink></li>
+                      <li><NavLink to="/">Hoodie</NavLink></li>
+                    </ul>
+                  </NavLink>
+                </li>
+                <li><NavLink to="/">Botton
+                  <ul className='subnav-two'>
+                        <li><NavLink to="/">Short</NavLink></li>
+                    </ul>
+                  </NavLink>
+                </li>
+                <li><NavLink to="/">Short</NavLink></li>
+              </ul>
+            </NavLink>
+          </li>
+          <li><NavLink to="/about">About Us</NavLink></li>
+          <li><NavLink to="">Blog</NavLink></li>
+          <li><NavLink to="">Contact</NavLink></li>
+          <li><NavLink to="">Checking order</NavLink></li>
         </ul>
 
         <div className='IconNavbar'>

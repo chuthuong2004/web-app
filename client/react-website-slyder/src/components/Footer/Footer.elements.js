@@ -9,9 +9,17 @@ export const FooterContainer = styled.div`
     margin-left: -2rem;
     margin-right: -2rem;
     box-shadow: 10px 5px 30px #ccc;
+
+    @media screen and (min-width: 280px) and (max-width: 1080px){
+        display: block;
+        padding: 16px 0;
+        text-align: center;
+        line-height: 18px;
+        min-height: 40rem;
+    }
 `
 
-export const FooterItems= styled.div`
+export const FooterItems = styled.div`
     
 `
 
