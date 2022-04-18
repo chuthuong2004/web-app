@@ -987,8 +987,8 @@ input:checked ~ .custom-checkbox__checkmark > i {
 }
 
 .cart__info {
-  width: 40%;
-  margin-right: 30%;
+  width: 35%;
+  margin-right: 5%;
   margin-top: 30px;
   -webkit-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
           box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -1039,5 +1039,62 @@ input:checked ~ .custom-checkbox__checkmark > i {
 
 .cart__info__btn__buy:hover {
   background-color: #3636eb;
+}
+
+.cart__list {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.cart__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.cart__item__image {
+  margin-right: 30px;
+}
+
+.cart__item__image img {
+  height: 80px;
+}
+
+.cart__item__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.cart__item__info__name {
+  width: 40%;
+}
+
+.cart__item__info__name, .cart__item__info__price {
+  font-size: 1rem;
+}
+
+.cart__item__info__del {
+  cursor: pointer;
+}
+
+.cart__item__info__del__btn:hover {
+  color: #444444;
 }
 /*# sourceMappingURL=index.css.map */

@@ -7,8 +7,8 @@
     }
 
     &__info {
-        width: 40%;
-        margin-right: 30%;
+        width: 35%;
+        margin-right: 5%;
         margin-top: 30px;
         box-shadow: $box-shadow;
         position: sticky;
@@ -58,7 +58,46 @@
 
     }
 
+    &__list {
+        flex-grow: 1;
+    }
 
+    &__item {
+        @include flex(center, flex-start);
+
+        &__image {
+            margin-right: 30px;
+            
+            img {
+                height: 80px;
+            }
+        }
+
+        &__info {
+            @include flex(center, space-between);
+            flex-grow: 1;
+
+            &__name {
+                width: 40%;
+            }
+
+            &__name,
+            &__price {
+                font-size: 1rem;
+            }
+
+            &__del {
+                cursor: pointer;
+                &__btn{
+
+
+                    &:hover {
+                        color: rgb(68, 68, 68);
+                    }
+                }
+            }
+        }
+    }
 
 
 }
