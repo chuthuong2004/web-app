@@ -15,20 +15,7 @@ const CartItem = (props) => {
     const  [quantity, setQuantity] = useState(props.item.quantity)
     console.log(props.item)
 
-    useEffect(() => {
-        setItem(props.item)
-        setQuantity(props.item.quantity)
-    }, [props.item])
 
-    const updateQuantity = (opt) => {
-        if (opt === '+') {
-            setQuantity(quantity+1)
-        }
-
-        if (opt === '-') {
-            setQuantity(quantity-1 === 0 ? 1 : quantity-1)
-        }
-    }
 
     const removeCartItem = (id, e) => {
         e.preventDefault()
@@ -41,9 +28,33 @@ const CartItem = (props) => {
     
           } catch (error) {
             console.log('Failed: ', error)
-          }
-
+        }
     }
+
+
+
+    const updateQuantity = (opt, id) => {
+        if (opt === '+') {
+
+            cartApi.updateQuantity(id,quantity+1, accessToken)
+            setQuantity(quantity+1)
+
+        }
+
+        if (opt === '-') {
+            cartApi.updateQuantity(id,quantity-1,  accessToken)
+            setQuantity(quantity-1 === 0 ? 1 : quantity-1)
+        }
+    }
+
+
+
+    useEffect(() => {
+        setItem(props.item)
+        setQuantity(props.item.quantity)
+    }, [props.item])
+    console.log(props.item)
+
 
     console.log('cartItem alo lao: ', item)
   return (
@@ -62,18 +73,18 @@ const CartItem = (props) => {
             </div>
             <div className="cart__item__info__quantity">
             <div className="product__info__item__quantity">
-                    <div className="product__info__item__quantity__btn" onClick={() =>updateQuantity('-')}>
+                    <div className="product__info__item__quantity__btn" onClick={() =>updateQuantity('-', item.product._id)}>
                         <i className="bx bx-minus" >-</i>
                     </div>
                     <div className="product__info__item__quantity__btn">
                         {quantity}
                     </div>
-                    <div className="product__info__item__quantity__btn" onClick={() =>updateQuantity('+')}>
+                    <div className="product__info__item__quantity__btn" onClick={() =>updateQuantity('+',  item.product._id)}>
                         <i className="bx bx-plus" >+</i>
                     </div>
                 </div>
             </div> 
-            <div className="cart__item__info__del" onClick={(e) => removeCartItem(item.product._id, e)}>
+            <div className="cart__item__info__del" onClick={(e) => removeCartItem(item._id, e)}>
                 <DeleteIcon className="cart__item__info__del__btn" />
             </div>
         </div>  
