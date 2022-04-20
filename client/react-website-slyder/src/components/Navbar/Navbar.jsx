@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { FaSearch,FaCartPlus, FaUserCircle, FaCaretDown } from 'react-icons/fa';
 import {AiOutlineMenu} from 'react-icons/ai'
 import {VscChromeClose} from 'react-icons/vsc'
@@ -21,19 +21,36 @@ export default function Navbar() {
   const navigate = useNavigate()
   let axiosJWT = createAxios(user, dispastch, logoutSuccess )
   const [navbarState, setNavbarState] = useState(false);
-  
+  const [navSize, setnavSize] = useState("84px")
+  const [navWidth, setnavWidth] = useState("100%")
+  const [navColor, setnavColor] = useState("#fff")
+
+  const listenScrollEvent = () => {
+    window.screenY > 10 ? setnavColor("#fff") : setnavColor("#fff")
+    window.scrollY > 10 ? setnavSize("6rem") : setnavSize("84px");
+    window.scrollY > 10 ? setnavWidth("100%") : setnavWidth("100%");
+  }
+
+useEffect(() => {
+    window.addEventListener("scroll", listenScrollEvent);
+    return () => {
+        window.removeEventListener("scroll", listenScrollEvent);
+    };
+}, []);
+
   const handleLogout = () => {
     console.log("log acc log" + accessToken)
     logoutUsers(dispastch,id,navigate,accessToken,axiosJWT);
   }
 
-  
-
-
-
   return (
     <>
-      <Nav>
+      <Nav style={{
+          backgroundColor: navColor,
+          width: navWidth,
+          height: navSize,
+          transition: "all 1s"
+        }}>
         <div className='brand'>
           <div className='container'>
             <img src = {logo} alt = "logo"/>
@@ -48,6 +65,7 @@ export default function Navbar() {
           </div>
         </div>
         <ul>
+          <li><NavLink to="/">Home</NavLink></li>
           <li>
             <NavLink to="/">Shop<FaCaretDown />
               <ul className='subnav'>
@@ -76,12 +94,21 @@ export default function Navbar() {
         </ul>
 
         <div className='IconNavbar'>
-          <i className='Fasearch'><FaSearch /></i>
+          <i className='Fasearch' id='search-js'><FaSearch />
+        
+          </i>
           <Link to='/cart'><i className='FaCartPlus'><FaCartPlus /></i></Link>
           {user? (
             <>
               <div className='button-logout'>
-                <i className='Icon-user'><FaUserCircle /></i>
+                <i className='Icon-user'><FaUserCircle />
+                  <ul className='navIcon'>
+                    <li><NavLink to="/InfoAcc">Thông tin tài khoản</NavLink></li>
+                    <li><NavLink to="/">Đổi mật khẩu</NavLink></li>
+                  </ul>
+                </i>
+              </div>
+              <div className='btn-logout'>
                 <NavLink className="signout" to="#" onClick={handleLogout}>Log out</NavLink>
               </div>
             </>

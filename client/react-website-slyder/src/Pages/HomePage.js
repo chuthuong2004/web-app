@@ -8,8 +8,8 @@ import Blog from '../components/Blog/Blog'
 import scrollreveal from 'scrollreveal'
 import Evaluate from '../components/Evaluate/Evaluate'
 import { useSelector, useDispatch } from "react-redux"
-import { getAllUsers } from "../api/apiRequest"
-import { useNavigate } from 'react-router-dom'
+// import { getAllUsers } from "../api/apiRequest"
+// import { useNavigate } from 'react-router-dom'
 import { createAxios } from '../components/Form/FormSign/Redux/createInstance'
 import { loginSuccess } from '../components/Form/FormSign/Redux/authSlice'
 
@@ -18,18 +18,18 @@ function Home() {
 
     const user = useSelector((state) => state.auth.login?.currentUser)
     const dispatch = useDispatch()
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const msg = useSelector((state) => state.users?.msg)
     // const userList = useSelector((state) => state.users.users?.allUsers)
     let axiosJWT = createAxios(user, dispatch, loginSuccess)
 
-    useEffect(() => {
-        if (!user) {
-            navigate("/SignUp")
-        } if (user?.accessToken) {
-            getAllUsers(user?.accessToken, dispatch, axiosJWT)
-        }
-    })
+    // useEffect(() => {
+    //     if (!user) {
+    //         navigate("/SignUp")
+    //     } if (user?.accessToken) {
+    //         getAllUsers(user?.accessToken, dispatch, axiosJWT)
+    //     }
+    // })
 
     useEffect(() => {
         const sr = scrollreveal({

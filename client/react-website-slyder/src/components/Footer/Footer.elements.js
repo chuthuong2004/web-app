@@ -5,10 +5,9 @@ export const FooterContainer = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 16rem;
+    height: 20rem;
     margin-left: -2rem;
     margin-right: -2rem;
-    box-shadow: 10px 5px 30px #ccc;
 
     @media screen and (min-width: 280px) and (max-width: 1080px){
         display: block;

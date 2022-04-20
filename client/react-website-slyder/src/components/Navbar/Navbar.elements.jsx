@@ -9,7 +9,6 @@ export const Nav = styled.div`
     z-index: 10;
     position: fixed;
     background-color: #fff;
-    box-shadow: 0 5px 10px #ccc;
     margin-left: -2rem;
     padding: 0 1rem;
     .brand{
@@ -33,6 +32,7 @@ export const Nav = styled.div`
         list-style-type: none;
         gap: 4rem;
         font-weight: 700;
+        background-color: #fff;
 
         .subnav::before{
             content: "";
@@ -41,8 +41,7 @@ export const Nav = styled.div`
             border-color: transparent transparent #fff;
             position: absolute;
             right: 80%;
-            top: -35px;
-            
+            top: -35px; 
         }
         li{
             a{
@@ -64,15 +63,13 @@ export const Nav = styled.div`
                 display: none;
                 position: absolute;
                 box-shadow: 0 0px 10px #000;
+                top: 74px;
 
                 li{
                     color: black;
                     text-align: center;
                     line-height: 64px;
                     min-width: 18rem;
-                    
-                    background-color: #fff;
-                    
                     .subnav-two{
                         display: block;
                         top: 0;
@@ -93,11 +90,13 @@ export const Nav = styled.div`
 
     .IconNavbar{
         display: flex;
+        
         .Fasearch, .FaCartPlus{
             font-size: 1rem;
             padding: 0 0.8rem;
             text-align: center;
             margin-top: auto;
+            
             margin-bottom: auto;
             line-height: 71px;
             cursor: pointer;
@@ -108,6 +107,22 @@ export const Nav = styled.div`
                 transition: 0.1s ease-in-out;
                 color: #023e83;
                 opacity: 1;
+            }
+        }
+
+        ul{
+            position: absolute;
+            display: none;
+            top: 74px;
+            background-color: #fff;
+            box-shadow: 0 0px 10px #000;
+            transition: 0.3 ease-in-out;
+
+            li{
+                color: black;
+                text-align: center;
+                line-height: 64px;
+                min-width: 18rem;
             }
         }
     }
@@ -156,8 +171,47 @@ export const Nav = styled.div`
     }
 
     .button-logout{
+        .Icon-user{
+            font-size: 1rem;
+            padding: 0 0.8rem;
+            text-align: center;
+            margin-top: auto;
+            margin-bottom: auto;
+            line-height: 71px;
+            cursor: pointer;
+           opacity: 0.4;
 
-        .signout{
+            &:hover{
+                cursor: pointer;
+                transition: 0.1s ease-in-out;
+                color: #023e83;
+                opacity: 1;
+            }
+        }
+        
+        &:hover .Icon-user > .navIcon{
+            display: block;
+        }
+
+        .navIcon::before{
+            content: "";
+            border-width: 20px 20px;
+            border-style: solid;
+            border-color: transparent transparent #fff;
+            position: absolute;
+            right: 86%;
+            top: -40px;
+        }
+        .navIcon::before{
+            content: "";
+            border-width: 20px 20px;
+            border-style: solid;
+            position: absolute;
+            right: 86%;
+            top: -40px;
+        }
+    }
+    .signout{
             padding: 0.5rem 2rem;
             border-radius: 1rem;
             background-color: #DCDCDC;
@@ -176,25 +230,6 @@ export const Nav = styled.div`
                 color: #fff;
             }
         }
-
-        .Icon-user{
-                font-size: 1rem;
-                padding: 0 0.8rem;
-                text-align: center;
-                margin-top: auto;
-                margin-bottom: auto;
-                line-height: 71px;
-                cursor: pointer;
-                opacity: 0.4;
-
-                &:hover{
-                    cursor: pointer;
-                    transition: 0.1s ease-in-out;
-                    color: #023e83;
-                    opacity: 1;
-                }
-            }
-    }
     @media screen and (min-width: 280px) and (max-width: 1080px) {
         
         .brand {
@@ -244,7 +279,9 @@ export const Nav = styled.div`
                 font-size: 1.6rem;
                 margin-right: 14px;
             }
+        }
 
+        .btn-logout{
             .signout{
                 display: none;
             }

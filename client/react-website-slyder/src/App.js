@@ -13,6 +13,7 @@ import Blog from './components/Blog/Blog';
 import Catalog from "./Pages/Catalog"
 import Product from './Pages/Product'
 import Cart from './Pages/Cart'
+import InfoAcc from './Pages/InfoAccountPages';
 
 
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/Catalog" element={<Catalog />} />
         <Route path="/Catalog/:slug" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/InfoAcc" element={<InfoAcc />} />
       </Routes>
       <Footer />
     </Router>
