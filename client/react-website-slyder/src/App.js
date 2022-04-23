@@ -14,6 +14,7 @@ import Catalog from "./Pages/Catalog"
 import Product from './Pages/Product'
 import Cart from './Pages/Cart'
 import InfoAcc from './Pages/InfoAccountPages';
+import Contact from "./Pages/ContactPages"
 
 
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/SignUp" element={<SignUp />} />
         <Route path='/About' element={<About />} />
         <Route path="/Blog" element={<Blog />} />
+        <Route path='/Contact' element={<Contact />} />
         <Route path="/Catalog" element={<Catalog />} />
         <Route path="/Catalog/:slug" element={<Product />} />
         <Route path="/cart" element={<Cart />} />

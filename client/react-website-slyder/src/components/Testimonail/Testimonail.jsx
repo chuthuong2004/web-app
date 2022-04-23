@@ -20,7 +20,7 @@ export default function Testimonail(){
           return (
             <div className="destination">
               <img src={destination.image} alt="" />
-              <h3>{destination.title}</h3>
+              <h5>{destination.title}</h5>
               <div className="info">
                 <div className="services">
                   <img src={cart} alt="" />

@@ -89,7 +89,7 @@ useEffect(() => {
           </li>
           <li><NavLink to="/about">About Us</NavLink></li>
           <li><NavLink to="">Blog</NavLink></li>
-          <li><NavLink to="">Contact</NavLink></li>
+          <li><NavLink to="/contact">Contact</NavLink></li>
           <li><NavLink to="">Checking order</NavLink></li>
         </ul>
 
@@ -101,12 +101,7 @@ useEffect(() => {
           {user? (
             <>
               <div className='button-logout'>
-                <i className='Icon-user'><FaUserCircle />
-                  <ul className='navIcon'>
-                    <li><NavLink to="/InfoAcc">Thông tin tài khoản</NavLink></li>
-                    <li><NavLink to="/">Đổi mật khẩu</NavLink></li>
-                  </ul>
-                </i>
+                <NavLink to="/InfoAcc"><i className='Icon-user'><FaUserCircle /></i></NavLink>
               </div>
               <div className='btn-logout'>
                 <NavLink className="signout" to="#" onClick={handleLogout}>Log out</NavLink>

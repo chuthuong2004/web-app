@@ -5,6 +5,14 @@ export const Content = styled.div`
     padding-top: 10rem;
     padding-left: 16rem;
     padding-right: 16rem;
+
+    @media screen and (min-width: 280px) and (max-width: 1080px) {
+        padding: 0;
+
+        .form-respon{
+            display: block;
+        }
+    }
 `
 
 export const ContentInfo = styled.div`
