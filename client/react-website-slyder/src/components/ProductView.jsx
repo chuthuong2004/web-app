@@ -1,8 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {FaStar} from 'react-icons/fa'
+import cartApi from '../api/cartApi'
+import { useDispatch, useSelector } from 'react-redux'
+import productApi from '../api/productApi'
+import { get } from 'react-hook-form'
 
 const ProductView = (props) => {
+
+    const user = useSelector((state) => state.auth.login.currentUser)
+    const accessToken = user?.accessToken
 
     const product = props.product
 
@@ -17,6 +24,13 @@ const ProductView = (props) => {
     const [quantity, setQuantity] = useState(1)
 
     const [activeImg, setActiveImg] = useState(0)
+
+    const [productApi, setProductApi] = useState()
+
+    const [amount, setAmount] = useState()
+
+
+    console.log(product._id, quantity, color, size)
 
     const updateQuantity = (type) => {
         if (type === 'plus') {
@@ -40,9 +54,32 @@ const ProductView = (props) => {
         return true
     }
 
-    const addToCart = () => {
-        if (check()) console.log(color, size, quantity)
+
+    const addToCart = (id, quantity, color, size) => {
+        if (check() ){
+            if (quantity <= amount) {
+                const res = cartApi.addItem(id, quantity, color, size, accessToken)
+            } else {
+                console.log("quantity, amout", quantity, amount)
+                alert("Số lượng mua đã vượt quá số hàng trong kho")
+            }
+
+
+
+           // kiểm tra nếu trà về status 200 thì hiển thị số lượng số hàng lên nha, 
+        //    status 200 là ok, còn lại là bị lỗi
+        //    400 là lỗi về dữ liệu
+        //     500 là lỗi serrver
+        //    if(res.)
+        }  
     }
+
+    // const getAll = () => {
+    //     const res2 = productApi.getProduct(product._id, accessToken)
+    //     setProductApi(res2)
+    // }
+    // getAll()
+    // console.log("Product Api: ", productApi)
 
 
 
@@ -100,33 +137,57 @@ const ProductView = (props) => {
             </div>
             <div className="product__info__item">
                 <div className="product__info__item__title">
-                    Màu sắc
-                </div>
-                <div className="product__info__item__list">
-                        {product.detail[0].detailColor.map((item, index)=>(
-                            <div key={index} className={`product__info__item__list__item ${color === item.color ? 'active' : ''}`}
-                                onClick={()=> setColor(item.color)}
-                            >
-                                <div className={`circle bg-${item.color}`}></div>
-                            </div>
-                        ))}
-                </div>
-            </div>
-            <div className="product__info__item">
-                <div className="product__info__item__title">
                     Size
                 </div>
                 <div className="product__info__item__list">
                         {product.detail.map((item, index)=>(
-                            <div key={index} className={`product__info__item__list__item ${item.size === size ? 'active' : ''}`}
-                                onClick={()=> setSize(item.size)}
-                            >
-                                <span className="product__info__item__list__item__size">                                
-                                    {item.size}
-                                </span>
-                                
-                            </div>
+                                <div key={index} className={`product__info__item__list__item ${item.size === size ? 'active' : ''}`}
+                                    onClick={()=> setSize(item.size)}
+                                >
+                                    <span className="product__info__item__list__item__size">                                
+                                        {item.size}
+                                    </span>
+                                    
+                                </div>
                         ))}
+                    </div>
+                </div>
+            
+            <div className="product__info__item">
+                <div className="product__info__item__title">
+                    Color
+                </div>
+                <div className="product__info__item__list">
+                    {typeof size === 'undefined' ? <p className="product__info__item__list__err">Vui lòng chọn size</p> : <></>}
+                            {product.detail.map((item, index) => (
+                                <>
+                                    {console.log(item)}
+                                    {(item.size !== size  ? <div></div> : 
+                                        (
+                                            item.detailColor.map((item2, index2) => (
+                                                <>
+                                                   { (item2.amount <= 0 ? <div></div> :
+                                                   <>
+                                                        <div key={index2} className={`product__info__item__list__item ${color === item2.color ? 'active' : ''}`}
+                                                        onClick={()=> {setColor(item2.color); setAmount(item2.amount)}}
+                                                        >
+                                                            
+                                                            <div className={`circle bg-${item2.color}`}></div>
+                                                            
+                                                        </div>
+                                                        <div className="product__info__item__list__amount">
+                                                            <p className={color === item2.color ? 'active' : 'display'}>Size {item.size} màu {item2.color} còn {item2.amount} sản phẩm trong kho</p>
+                                                        </div>
+                                                    </>
+                                                    )}
+                                                </>
+                                            ))
+                                        ))}
+                                      
+                                </>
+
+                            ))}
+
                 </div>
             </div>
             <div className="product__info__item">
@@ -147,7 +208,7 @@ const ProductView = (props) => {
             </div>
             <div className="product__info__item">
                 <div className="product__info__item__button">
-                    <div className="product__info__item__button__CartButton" onClick={() => addToCart()}>Thêm vào giỏ hàng</div>
+                    <div className="product__info__item__button__CartButton" onClick={() => addToCart(product._id, quantity, color, size)}>Thêm vào giỏ hàng</div>
                     <div className="product__info__item__button__BuyButton" >Mua ngay</div>
                 </div>
             </div>

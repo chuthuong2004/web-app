@@ -755,6 +755,22 @@ input:checked ~ .custom-checkbox__checkmark > i {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  position: relative;
+}
+
+.product__info__item__list__err {
+  color: red;
+}
+
+.product__info__item__list__amount .active {
+  position: absolute;
+  top: 47px;
+  left: 90px;
+  color: #b67575;
+}
+
+.product__info__item__list__amount .display {
+  display: none;
 }
 
 .product__info__item__list__item {

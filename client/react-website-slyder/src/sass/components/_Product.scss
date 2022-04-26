@@ -123,7 +123,28 @@
             }
 
             &__list {
-                @include flex(center, flex-start);
+                @include flex(center, flex-start);  
+                position: relative;
+                &__err {
+                    color: red;
+                }
+
+                &__amount {
+                    
+                    
+                    .active {
+                        position: absolute;
+                        top: 47px;
+                        left: 90px;
+                        color: rgb(182, 117, 117);
+                    }
+
+                    .display {
+                        display: none;
+                    }
+
+                }
+
                 &__item {
                     @include flex(center, center);
                     width: 30px;
@@ -150,6 +171,12 @@
                         font-size: 1rem;
                         text-transform: uppercase;
                     }
+
+
+
+
+
+
                 }
             }
 
