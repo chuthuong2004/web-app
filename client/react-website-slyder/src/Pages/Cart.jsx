@@ -27,6 +27,7 @@ const Cart = () => {
   },[])
   const getTotalPrice = () => {
     const totalPrice = cartProduct.cartItems.reduce((total, item) => total +((item.product.price - (item.product.price * (item.product.discount / 100))) * item.quantity),0)
+    console.log("total: ", totalPrice)
     return totalPrice
   }
 

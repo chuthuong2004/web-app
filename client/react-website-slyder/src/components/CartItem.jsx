@@ -29,6 +29,7 @@ const CartItem = (props) => {
           } catch (error) {
             console.log('Failed: ', error)
         }
+
     }
 
 
@@ -69,17 +70,18 @@ const CartItem = (props) => {
                 </Link>
             </div>
             <div className="cart__item__info__price">
-                {(item.product.price*(100-item.product.discount))}đ
+                {(item.product.price*((100-item.product.discount)/100))}đ
+                {console.log(("price", item.product.price*((100-item.product.discount)/100)))}
             </div>
             <div className="cart__item__info__quantity">
             <div className="product__info__item__quantity">
-                    <div className="product__info__item__quantity__btn" onClick={() =>updateQuantity('-', item.product._id)}>
+                    <div className="product__info__item__quantity__btn" onClick={() =>updateQuantity('-', item._id)}>
                         <i className="bx bx-minus" >-</i>
                     </div>
                     <div className="product__info__item__quantity__btn">
                         {quantity}
                     </div>
-                    <div className="product__info__item__quantity__btn" onClick={() =>updateQuantity('+',  item.product._id)}>
+                    <div className="product__info__item__quantity__btn" onClick={() =>updateQuantity('+',  item._id)}>
                         <i className="bx bx-plus" >+</i>
                     </div>
                 </div>
