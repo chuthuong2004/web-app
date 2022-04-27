@@ -49,7 +49,7 @@ const Footer = () => {
             </FooterList>
 
             <FooterSignout>
-                <h2>Đăng kí</h2>
+                <FotterTitle>Đăng kí</FotterTitle>
                 <FooterLink>Đăng ký để nhận được được thông tin mới nhất từ chúng tôi.</FooterLink>
                 <FooterInput>
                     <input name='email' type='email' placeholder='Your Email.......'/>

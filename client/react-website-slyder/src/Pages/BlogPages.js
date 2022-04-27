@@ -1,10 +1,10 @@
 import React from 'react'
-import Blog from "../components/Form/FormBlog/FormBlog"
+import Blogelement from "../components/Form/FormBlog/FormBlogs"
 
-function BlogPages() {
+const BlogPages = () => {
     return (
         <>
-            <Blog />
+            <Blogelement />
         </>
     )
 }

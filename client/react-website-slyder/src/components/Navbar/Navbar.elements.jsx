@@ -32,6 +32,7 @@ export const Nav = styled.div`
         list-style-type: none;
         gap: 4rem;
         font-weight: 700;
+        margin-bottom: 0;
         background-color: #fff;
 
         .subnav::before{

@@ -6,14 +6,26 @@ import {
   AboutInner
 } from '../FormAbout/AboutForm.element'
 import {AboutData, data} from "./AboutData"
-import Background from "../../Images/background.jpg"
+import {
+  ContainerContact,
+  ContactContent
+} from "../FormContact/Contact.element"
 
 const AboutForm = () => {
   return (
     <>
       <ContentAbout>
         <AboutBackground>
-          <img src={Background} alt="/" />
+          
+          <ContainerContact>
+            <ContactContent>
+              <div className='content_title_img'>
+                <div className='content_tile_pos'>
+                  <p>Giới Thiệu</p>
+                </div>
+              </div>
+            </ContactContent>
+          </ContainerContact>
 
           <AboutHeadding>
             <div className='history'>

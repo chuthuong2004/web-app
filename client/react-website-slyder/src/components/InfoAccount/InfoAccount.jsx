@@ -18,8 +18,8 @@ export const InfoAccount = () => {
                                 <input type="email" class="form-control" id="inputEmail4" value={user.email} />
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="inputPhone">Phone</label>
-                                <input type="text" class="form-control" id="inputPhone" placeholder="Phone...." />
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" id="inputUser" value={user.username}/>
                             </div>
                         </div>
                         <div class="form-group">

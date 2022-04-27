@@ -88,9 +88,9 @@ useEffect(() => {
             </NavLink>
           </li>
           <li><NavLink to="/about">About Us</NavLink></li>
-          <li><NavLink to="">Blog</NavLink></li>
+          <li><NavLink to="/blog">Blog</NavLink></li>
           <li><NavLink to="/contact">Contact</NavLink></li>
-          <li><NavLink to="">Checking order</NavLink></li>
+          <li><NavLink to="/checkking">Checking order</NavLink></li>
         </ul>
 
         <div className='IconNavbar'>

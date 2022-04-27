@@ -37,7 +37,6 @@ export default function Recommend() {
                 </div>
                 <h4>{destination.price}</h4>
               </div>
-              
             </div>
           );
         })}

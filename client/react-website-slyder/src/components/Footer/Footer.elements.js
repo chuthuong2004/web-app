@@ -34,6 +34,7 @@ export const FooterTime = styled.div``
 
 export const FotterTitle = styled.h2`
     font-size: 1.4rem;
+    font-weight: bold;
 `
 
 export const FooterLink = styled.p`
