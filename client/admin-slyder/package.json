@@ -1,21 +1,60 @@
 {
-  "name": "admin-slyder",
+  "name": "react-website-slyder",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.1.1",
+    "@chec/commerce.js": "^2.8.0",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "@mui/icons-material": "^5.6.1",
+    "@mui/material": "^5.6.1",
+    "@mui/x-data-grid": "^5.10.0",
+    "@reduxjs/toolkit": "^1.8.1",
+    "@stripe/react-stripe-js": "^1.7.0",
+    "@stripe/stripe-js": "^1.26.0",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "axios": "^0.26.1",
+    "axios-jwt": "^1.7.6",
+    "formik": "^2.2.9",
+    "framer-motion": "^6.2.8",
+    "jwt-decode": "^3.1.2",
+    "mapbox-gl": "^2.8.2",
+    "node-sass": "^7.0.1",
+    "persist": "^0.2.7",
+    "prop-types": "^15.8.1",
+    "query-string": "^7.1.1",
+    "react": "^17.0.2",
+    "react-circular-progressbar": "^2.0.4",
+    "react-dom": "^17.0.2",
+    "react-hook-form": "^7.28.1",
+    "react-icons": "^4.3.1",
+    "react-map-gl": "^7.0.11",
+    "react-redux": "^7.2.8",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "^5.0.0",
+    "react-slick": "^0.28.1",
+    "react-start": "^1.1.2",
+    "recharts": "^2.1.9",
+    "redux": "^4.1.2",
+    "redux-persist": "^6.0.0",
+    "sass": "^1.49.11",
+    "scrollreveal": "^4.0.9",
+    "styled-components": "^5.3.3",
+    "toolkit": "^1.5.4",
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "json-server --watch db.json --port 5000"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +73,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.4.0"
   }
 }
