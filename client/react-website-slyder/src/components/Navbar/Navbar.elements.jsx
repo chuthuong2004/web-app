@@ -129,9 +129,9 @@ export const Nav = styled.div`
     }
 
     .button-log{
+        
         margin-left: 1.2rem;
         cursor: pointer;
-        /* display: none; */
     
         .signup{
             padding: 0.5rem 2rem;
@@ -172,6 +172,10 @@ export const Nav = styled.div`
     }
 
     .button-logout{
+
+        .subnav_Link{
+            position: relative;
+        }
         .Icon-user{
             font-size: 1rem;
             padding: 0 0.8rem;
@@ -180,7 +184,13 @@ export const Nav = styled.div`
             margin-bottom: auto;
             line-height: 71px;
             cursor: pointer;
-           opacity: 0.4;
+            opacity: 0.4;
+
+            img{
+                max-width: 30px;
+                min-height: 30px;
+                border-radius: 100%;
+            }
 
             &:hover{
                 cursor: pointer;
@@ -188,28 +198,50 @@ export const Nav = styled.div`
                 color: #023e83;
                 opacity: 1;
             }
-        }
-        
-        &:hover .Icon-user > .navIcon{
-            display: block;
-        }
 
-        .navIcon::before{
-            content: "";
-            border-width: 20px 20px;
-            border-style: solid;
-            border-color: transparent transparent #fff;
-            position: absolute;
-            right: 86%;
-            top: -40px;
-        }
-        .navIcon::before{
-            content: "";
-            border-width: 20px 20px;
-            border-style: solid;
-            position: absolute;
-            right: 86%;
-            top: -40px;
+            &:hover > .subnav-icon{
+                display: block;
+            }
+
+            .subnav-icon::after{
+                content: "";
+                width: 100%;
+                position: absolute;
+                top: -20px;
+                right: 0;
+                height: 20px;
+            }
+
+            .subnav-icon::before{
+                content: "";
+                border-width: 20px 20px;
+                border-style: solid;
+                border-color: transparent transparent #FDF5E6;
+                position: absolute;
+                right: 10%;
+                top: -35px; 
+            }
+
+            .subnav-icon{
+                background-color: #FDF5E6;
+                position: absolute;
+                top: 34px;
+                display: none;
+                right: 0;
+                box-shadow:  5px 5px 5px #ccc;
+
+                li{
+                    min-width: 14rem;
+                    list-style: none;
+                    line-height: 64px;
+                    padding-right: 16px;
+                    color: #000;
+
+                    &:hover{
+                        color: #023e83;
+                    }
+                }
+            }
         }
     }
     .signout{

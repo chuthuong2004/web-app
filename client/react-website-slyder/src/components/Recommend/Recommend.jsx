@@ -3,9 +3,12 @@ import cart from '../Images/cart.png'
 import data from '../Recommend/Data'
 import packages from '../Recommend/Packages'
 import { Content } from './Recommend.element';
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
+import {useSelector} from "react-redux"
 
 export default function Recommend() {
+
+  const user = useSelector((state) => state.auth.login.currentUser)
   
   const [active, setActive] = useState(1);
   
@@ -41,7 +44,18 @@ export default function Recommend() {
           );
         })}
       </div>
-      <Link to="/catalog"><button>Xem tất cả <i class="IconButton fa-solid fa-angle-right"></i></button></Link>
+
+      {user? (
+        <>
+          <NavLink to="/catalog"><button>Xem tất cả <i class="IconButton fa-solid fa-angle-right"></i></button></NavLink>
+        </>
+      ): (
+        <>
+          <NavLink to="/Signup"><button>Xem tất cả <i class="IconButton fa-solid fa-angle-right"></i></button></NavLink>
+        </>
+      )}
+    
+      
     </Content>
   );
 }

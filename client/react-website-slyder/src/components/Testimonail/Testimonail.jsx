@@ -2,9 +2,14 @@ import React from 'react'
 import cart from '../Images/cart.png'
 import data from '../Testimonail/Data'
 import { Content, Container } from './Testimonail.element'
-import {Link} from 'react-router-dom'
+import { NavLink} from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
 
 export default function Testimonail(){
+
+  const user = useSelector((state) => state.auth.login.currentUser)
+
   return (
     <Container>
       <div className='Content'>
@@ -33,7 +38,15 @@ export default function Testimonail(){
           );
         })}
       </div>
-      <Link to="/catalog"><button>Xem tất cả <i class="IconButton fa-solid fa-angle-right"></i></button></Link>
+      {user?(
+        <>
+          <NavLink to="/catalog"><button>Xem tất cả <i class="IconButton fa-solid fa-angle-right"></i></button></NavLink>
+        </>
+      ):(
+        <>
+          <NavLink to="/Signup"><button>Xem tất cả <i class="IconButton fa-solid fa-angle-right"></i></button></NavLink>
+        </>
+      )}
     </Content>
     </Container>
   )

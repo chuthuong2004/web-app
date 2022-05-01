@@ -1,6 +1,6 @@
 import { loginFailed, loginStart, loginSuccess, logoutFailed, logoutStart, logoutSuccess, signupFailed, signupStart, signupSuccess } from "./../components/Form/FormSign/Redux/authSlice";
 import axios from "axios";
-import { getUsersFailse, getUsersStart, getUsersSuccess } from "../components/Form/FormSign/Redux/userSlider";
+import { deleteUsersFailse, deleteUsersStart, deleteUsersSuccess, getUsersFailse, getUsersStart, getUsersSuccess } from "../components/Form/FormSign/Redux/userSlider";
 
 export const loginUser = async (user, dispatch, navigate) => {
     dispatch(loginStart())
@@ -52,5 +52,17 @@ export const logoutUsers = async (dispatch, id, navigate, accessToken, axiosJWT)
         navigate("/SignUp")
     } catch {
         dispatch(logoutFailed())
+    }
+}
+
+export const DeleteUser = async (accessToken, dispatch, id, axiosJWT) => {
+    dispatch(deleteUsersStart());
+    try {
+        const res = await axiosJWT.delete('https://web-api-chuthuong.herokuapp.com/api/v1/admin/user/:id' + id, {
+            headers: { token: `Bearer ${accessToken}` }
+        })
+        dispatch(deleteUsersSuccess(res.data))
+    } catch (err) {
+        dispatch(deleteUsersFailse(err.response.data))
     }
 }

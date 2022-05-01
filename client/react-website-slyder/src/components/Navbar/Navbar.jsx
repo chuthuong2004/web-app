@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { FaSearch,FaCartPlus, FaUserCircle, FaCaretDown } from 'react-icons/fa';
+import { FaSearch,FaCartPlus, FaCaretDown } from 'react-icons/fa';
 import {AiOutlineMenu} from 'react-icons/ai'
 import {VscChromeClose} from 'react-icons/vsc'
 import logo from '../Images/logo.png'
@@ -39,7 +39,6 @@ useEffect(() => {
 }, []);
 
   const handleLogout = () => {
-    console.log("log acc log" + accessToken)
     logoutUsers(dispastch,id,navigate,accessToken,axiosJWT);
   }
 
@@ -94,26 +93,30 @@ useEffect(() => {
         </ul>
 
         <div className='IconNavbar'>
-          <i className='Fasearch' id='search-js'><FaSearch />
-        
-          </i>
-          <Link to='/cart'><i className='FaCartPlus'><FaCartPlus /></i></Link>
           {user? (
             <>
               <div className='button-logout'>
-                <NavLink to="/InfoAcc"><i className='Icon-user'><FaUserCircle /></i></NavLink>
-              </div>
-              <div className='btn-logout'>
-                <NavLink className="signout" to="#" onClick={handleLogout}>Log out</NavLink>
+                <NavLink to="#" className="subnav_Link">
+                  <i className='Icon-user'><img src={user.avatar} /> <span>{user.username}</span>
+                    <ol className='subnav-icon'>
+                      <NavLink to="/InfoAcc"><li>Đổi mật khẩu</li></NavLink>
+                      <NavLink to="/cart" ><li>Đơn hàng của tôi</li></NavLink>
+                      <NavLink to="#" onClick={handleLogout}><li >Đăng xuất</li></NavLink>
+                    </ol>
+                  </i>
+                </NavLink>
+                <Link to='/cart'><i className='FaCartPlus'><FaCartPlus /></i></Link>
               </div>
             </>
             ) : (
-            <>
+              <>
               <div className='button-log'>
                 <NavLink className="signup" to="/SignUp">Sign Up</NavLink>
               </div>
             </>
           )}
+          <i className='Fasearch' id='search-js'><FaSearch /></i>
+          
         </div>
       </Nav>
       <ResponsiveNav state={navbarState}>
