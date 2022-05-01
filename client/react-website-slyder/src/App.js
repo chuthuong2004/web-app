@@ -16,6 +16,7 @@ import InfoAcc from './Pages/InfoAccountPages';
 import Contact from "./Pages/ContactPages"
 import BlogPages from "./Pages/BlogPages"
 import Checkking from './Pages/CheckkingForm';
+import Checkout from './Pages/Checkout'
 
 
 
@@ -35,6 +36,7 @@ function App() {
         <Route path="/Catalog/:slug" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/InfoAcc" element={<InfoAcc />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
       <Footer />
     </Router>

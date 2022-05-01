@@ -59,6 +59,7 @@ const ProductView = (props) => {
         if (check() ){
             if (quantity <= amount) {
                 const res = cartApi.addItem(id, quantity, color, size, accessToken)
+                alert("Đã thêm thành công")
             } else {
                 console.log("quantity, amout", quantity, amount)
                 alert("Số lượng mua đã vượt quá số hàng trong kho")
