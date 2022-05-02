@@ -1113,4 +1113,8 @@ input:checked ~ .custom-checkbox__checkmark > i {
 .cart__item__info__del__btn:hover {
   color: #444444;
 }
+
+.tess {
+  padding-top: 200px;
+}
 /*# sourceMappingURL=index.css.map */

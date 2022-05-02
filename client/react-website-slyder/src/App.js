@@ -17,6 +17,7 @@ import Contact from "./Pages/ContactPages"
 import BlogPages from "./Pages/BlogPages"
 import Checkking from './Pages/CheckkingForm';
 import Checkout from './Pages/Checkout'
+import Tess from './Pages/Tess'
 
 
 
@@ -33,10 +34,11 @@ function App() {
         <Route path='/Contact' element={<Contact />} />
         <Route path='/Checkking' element={<Checkking />} />
         <Route path="/Catalog" element={<Catalog />} />
-        <Route path="/Catalog/:slug" element={<Product />} />
+        <Route path="/Product/:slug" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/InfoAcc" element={<InfoAcc />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/Tess" element={<Tess />} />
       </Routes>
       <Footer />
     </Router>

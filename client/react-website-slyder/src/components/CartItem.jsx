@@ -19,17 +19,16 @@ const CartItem = (props) => {
 
     const removeCartItem = (id, e) => {
         e.preventDefault()
-        console.log('delete')
+
         try {
-            var res = cartApi.delete(id, accessToken)
-            console.log('success',res)
-            setItem(res.carts)
-            console.log(res.carts)
+            cartApi.delete(id, accessToken)
+            console.log('delete')
+
+            
     
           } catch (error) {
             console.log('Failed: ', error)
         }
-
     }
 
 

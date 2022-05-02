@@ -10,6 +10,7 @@ const Cart = () => {
   const accessToken = user?.accessToken
   console.log("accessToken: ",accessToken)
   const [cartProduct, setCartProduct] = useState([])
+  const [totalPrice, setTotalPrice] = useState(0)
   console.log("CartProduct: ", cartProduct)
 
 
@@ -18,7 +19,7 @@ const Cart = () => {
       try {
         const response = await cartApi.getMyCart(accessToken)
         console.log('cart: ', response)
-        setCartProduct(response.cart)
+        setCartProduct(response.cart.cartItems)
       } catch (error) {
         console.log('Failed: ', error)
       }
@@ -26,25 +27,27 @@ const Cart = () => {
     fetchProductList()
   },[])
   const getTotalPrice = () => {
-    const totalPrice = cartProduct.cartItems.reduce((total, item) => total +((item.product.price - (item.product.price * (item.product.discount / 100))) * item.quantity),0)
+    const totalPrice = cartProduct.reduce((total, item) => total +((item.product.price - (item.product.price * (item.product.discount / 100))) * item.quantity),0)
     console.log("total: ", totalPrice)
     return totalPrice
   }
+  useEffect(()=>{
+    setTotalPrice(cartProduct.reduce((total, item) => total +((item.product.price - (item.product.price * (item.product.discount / 100))) * item.quantity),0))
+  },[cartProduct])
 
 
-  if( cartProduct.length !== 0) {
     return (
       <div className="cart">
         <div className="cart__info">
           <div className="cart__info__txt">
-            <p>Bạn đang có {cartProduct.cartItems.length} sản phẩm trong giỏ hàng</p>
+            <p>Bạn đang có {cartProduct.length} sản phẩm trong giỏ hàng</p>
             <div className="cart__info__txt__price">
               <span>Thành tiền </span>
-              <span>{getTotalPrice()}</span>
+              <span>{totalPrice}</span>
             </div>
           </div>
           <div className="cart__info__btn">
-            <div className="cart__info__btn__buy">Đặt hàng</div>
+            <div className="cart__info__btn__buy"><Link to="/checkout">Đặt hàng</Link></div>
             <div className="cart__info__btn__buy">
               <Link to='/catalog'>
                 Tiếp tục mua hàng
@@ -53,20 +56,12 @@ const Cart = () => {
           </div>
         </div>
         <div className="cart__list">
-          {cartProduct.cartItems.map((item, index) => (// này phải lặp rồi , này phải lặp so sánh id r
+          {cartProduct.map((item, index) => (// này phải lặp rồi , này phải lặp so sánh id r
             <CartItem key={index} item={item} />
           ))}
         </div>
       </div>
     )
-  } else{
-    return (
-      <>
-        <div className="cart"><h3>Không có sản phẩm nào</h3></div>
-        <Link to='/catalog'>Tiếp tục mua hàng</Link>
-      </>
-    )
-  }
 
 }
 

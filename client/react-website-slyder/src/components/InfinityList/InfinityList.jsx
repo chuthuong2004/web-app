@@ -54,7 +54,7 @@ const InfinityList = props => {
 
   return (
     <div ref={listRef}>
-      {console.log(data)}
+      {console.log("data",data)}
         <Grid
               gap={20}
               col={4}
@@ -62,7 +62,7 @@ const InfinityList = props => {
               smCol={1}
                >
               {data.map(item => (
-                <Link to={`/catalog/${item.slug}`}>
+                <Link to={`/Product/${item.slug}`}>
                   <div className="product-card" key={item._id}>
                   <div className="product-card__image">
                     <img src={item.images[0].img} />
