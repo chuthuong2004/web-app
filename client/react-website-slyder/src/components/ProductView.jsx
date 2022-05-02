@@ -96,15 +96,12 @@ const ProductView = (props) => {
     <div className="product">
         <div className="product__images">
             <div className="product__images__list">
-                <div className="product__images__list__item" onClick={()=> setPreviewImg(product.images[0].img)}>
-                    <img src={product.images[0].img} alt=""  onClick={() => setActiveImg(0)} className={`${activeImg === 0 ? 'activeImg' : ''}`} />
-                </div>
-                <div className="product__images__list__item" onClick={()=> setPreviewImg(product.images[1].img)} >
-                    <img src={product.images[1].img} alt=""  onClick={() => setActiveImg(1)} className={`${activeImg === 1 ? 'activeImg' : ''}`}/>
-                </div>
-                <div className="product__images__list__item" onClick={()=> setPreviewImg(product.images[2].img)}>
-                    <img src={product.images[2].img} alt=""  onClick={() => setActiveImg(2)} className={`${activeImg === 2 ? 'activeImg' : ''}`}/>
-                </div>
+                {product.images.map((item, index) => (
+                    <div className="product__images__list__item" onClick={()=> setPreviewImg(item.img)}>
+                        <img src={item.img} alt=""  onClick={() => setActiveImg(index)} className={`${activeImg === index ? 'activeImg' : ''}`} />
+                    </div>
+                ))}
+                
             </div>
             <div className="product__images__main">
                 <img src={previewImg} alt="" />
