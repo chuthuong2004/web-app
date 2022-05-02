@@ -65,31 +65,26 @@ useEffect(() => {
         </div>
         <ul>
           <li><NavLink to="/">Home</NavLink></li>
-          <li>
-            <NavLink to="/">Shop<FaCaretDown />
+          <li><NavLink to="/">Shop<FaCaretDown /></NavLink>
               <ul className='subnav'>
-                <li>
-                  <NavLink to="/">Tops
-                    <ul className='subnav-two'>
-                      <li><NavLink to="/">T-Shirt</NavLink></li>
-                      <li><NavLink to="/">Hoodie</NavLink></li>
-                    </ul>
-                  </NavLink>
+                <li><NavLink to="/">T-Shirt</NavLink>
+                  <ul className='nav_subnav'>
+                    <li><NavLink to="/">Tay dai</NavLink></li>
+                    <li><NavLink to="/">Tay ngan</NavLink></li>
+                  </ul>
                 </li>
-                <li><NavLink to="/">Botton
-                  <ul className='subnav-two'>
-                        <li><NavLink to="/">Short</NavLink></li>
-                    </ul>
-                  </NavLink>
+                <li><NavLink to="/">Bottom</NavLink>
+                  <ul className='nav_subnav-short'>
+                      <li><NavLink to="/">Long</NavLink></li>
+                      <li><NavLink to="/">Short</NavLink></li>
+                  </ul>
                 </li>
-                <li><NavLink to="/">Short</NavLink></li>
+                <li><NavLink to="/">Hoodie</NavLink></li>
               </ul>
-            </NavLink>
           </li>
           <li><NavLink to="/about">About Us</NavLink></li>
           <li><NavLink to="/blog">Blog</NavLink></li>
           <li><NavLink to="/contact">Contact</NavLink></li>
-          <li><NavLink to="/checkking">Checking order</NavLink></li>
         </ul>
 
         <div className='IconNavbar'>

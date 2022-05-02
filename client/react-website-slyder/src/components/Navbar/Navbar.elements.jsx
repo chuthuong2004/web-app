@@ -34,15 +34,6 @@ export const Nav = styled.div`
         font-weight: 700;
         margin-bottom: 0;
         background-color: #fff;
-
-        .subnav::before{
-            content: "";
-            border-width: 20px 20px;
-            border-style: solid;
-            border-color: transparent transparent #fff;
-            position: absolute;
-            right: 80%;
-            top: -35px; 
         }
         li{
             a{
@@ -60,25 +51,115 @@ export const Nav = styled.div`
             &:hover .subnav{
                 display: block;
             }
+            .subnav::before{
+                content: "";
+                border-width: 20px 20px;
+                border-style: solid;
+                border-color: transparent transparent #fff;
+                position: absolute;
+                right: 80%;
+                top: -35px; 
+            }
+
+            .subnav::after{
+                content: "";
+                position: absolute;
+                right: 0;
+                top: -20px; 
+                width: 100%;
+                height: 20px;
+            }
             .subnav{
                 display: none;
                 position: absolute;
                 box-shadow: 0 0px 10px #000;
                 top: 74px;
+                padding: 16px;
 
                 li{
                     color: black;
                     text-align: center;
                     line-height: 64px;
-                    min-width: 18rem;
-                    .subnav-two{
+                    min-width: 14rem;
+
+                    &:hover > .nav_subnav{
                         display: block;
-                        top: 0;
-                        left: 300px;
+                    }
+
+                    &:hover > .nav_subnav-short{
+                        display: block;
+                    }
+
+                    .nav_subnav-short{
                         position: absolute;
+                        display: none;
+                        top: 70px;
+                        padding: 16px;
+                        right: -250px;
+                        box-shadow: 0 0px 10px #000;
+
                         li{
-                            display: block;
+                            cursor: pointer;
+                            line-height: 64px;
+                            min-width: 12rem;
+                            font-size: 1.2rem;
                         }
+                    }
+
+                    .nav_subnav{
+                        position: absolute;
+                        display: none;
+                        top: 0;
+                        padding: 16px;
+                        right: -250px;
+                        box-shadow: 0 0px 10px #000;
+
+                        li{
+                            cursor: pointer;
+                            line-height: 64px;
+                            min-width: 12rem;
+                            font-size: 1.2rem;
+                        }
+                    }
+
+                    .nav_subnav-short::before{
+                        content: "";
+                        border-top: 20px solid transparent;
+                        border-right: 20px solid #fff;
+                        border-bottom: 20px solid transparent;
+                        border-style: solid;
+                        position: absolute;
+                        right: 100%;
+                        top: 25px; 
+                    }
+
+                    .nav_subnav-short::after{
+                        content: "";
+                        position: absolute;
+                        right: 130px;
+                        top: 20px; 
+                        width: 100%;
+                        height: 48px;
+                    }
+
+                    .nav_subnav::before{
+                        content: "";
+                        border-top: 20px solid transparent;
+                        border-right: 20px solid #fff;
+                        border-bottom: 20px solid transparent;
+                        border-style: solid;
+                        position: absolute;
+                        right: 100%;
+                        top: 25px; 
+                    }
+
+                    .nav_subnav::after{
+                        content: "";
+                        position: absolute;
+                        right: 130px;
+                        top: 20px; 
+                        width: 100%;
+                        height: 48px;
                     }
                 }
 
@@ -216,21 +297,23 @@ export const Nav = styled.div`
                 content: "";
                 border-width: 20px 20px;
                 border-style: solid;
-                border-color: transparent transparent #FDF5E6;
+                border-color: transparent transparent #fff;
                 position: absolute;
                 right: 10%;
                 top: -35px; 
             }
 
             .subnav-icon{
-                background-color: #FDF5E6;
+                background-color: #fff;
                 position: absolute;
                 top: 34px;
                 display: none;
                 right: 0;
-                box-shadow:  5px 5px 5px #ccc;
+                padding: 16px;
+                box-shadow: 0 0px 10px #000;
 
                 li{
+                    font-weight: bold;
                     min-width: 14rem;
                     list-style: none;
                     line-height: 64px;
@@ -238,6 +321,7 @@ export const Nav = styled.div`
                     color: #000;
 
                     &:hover{
+                        box-shadow: 0 0.1rem #023e83;
                         color: #023e83;
                     }
                 }
@@ -245,24 +329,25 @@ export const Nav = styled.div`
         }
     }
     .signout{
-            padding: 0.5rem 2rem;
-            border-radius: 1rem;
-            background-color: #DCDCDC;
-            border: none;
-            margin-right: 8px;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            letter-spacing: 0.1rem;
-            transition: 0.4s ease-in-out;
-            align-items: center;
-            justify-content: center;
-            margin-left: 0.8rem ;
+        padding: 0.5rem 2rem;
+        border-radius: 1rem;
+        background-color: #DCDCDC;
+        border: none;
+        margin-right: 8px;
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        letter-spacing: 0.1rem;
+        transition: 0.4s ease-in-out;
+        align-items: center;
+        justify-content: center;
+        margin-left: 0.8rem ;
 
-            &:hover{
-                background-color: #000;
-                color: #fff;
-            }
+        &:hover{
+            background-color: #000;
+            color: #fff;
         }
+    }
+    
     @media screen and (min-width: 280px) and (max-width: 1080px) {
         
         .brand {
