@@ -8,7 +8,7 @@ import GlobalStyle from './globalStyles'
 //Pages
 import SignUp from './Pages/SignupPage'
 import Home from "./Pages/HomePage"
-import List from "./Pages/List/list"
+import List from "./Pages/List/List"
 import New from "./Pages/new/New"
 import Product from "./Pages/Product/Product"
 

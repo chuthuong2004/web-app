@@ -49,9 +49,9 @@ const Datatable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {products.map((product, id) => (
+            {products.map((product) => (
               <TableRow>
-                <TableCell className="tableCell" key={product.id}></TableCell>
+                <TableCell className="tableCell" key={product._id}></TableCell>
                 
                 <TableCell className="tableCell">
                   <div className="cellWrapper">

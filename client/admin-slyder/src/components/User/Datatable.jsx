@@ -8,21 +8,15 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { DeleteUser } from "../../api/apiRequest";
-import axiosJWT from "axios"
 
 
 const Datatable = () => {
 
-  const dispatch = useDispatch()
-
-  const user = useSelector((state) => state.auth.login?.currentUser)
-
   const useList = useSelector((state) => state.users.users?.allUsers)
   
-  const handleDelete = (id) => {
-    DeleteUser(user?.accessToken,dispatch,id, axiosJWT)
-  }
+  // const handleDelete = (id) => {
+  //   DeleteUser(user?.accessToken,dispatch,id, axiosJWT)
+  // }
   return (
     <div className="datatable">
       <div className="datatableTitle">
@@ -43,7 +37,7 @@ const Datatable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {useList?.map((users) => (
+            {useList?.map((users, id) => (
               <TableRow key={users.id}>
                 <TableCell className="tableCell">{users._id}</TableCell>
                 
@@ -58,7 +52,7 @@ const Datatable = () => {
                 
                 <TableCell className="tableCell">
                   <button className="viewButton">View</button>
-                  <button className="deleteButton" onClick={() => handleDelete(users._id)}>Delete</button>
+                  <button className="deleteButton">Delete</button>
                 </TableCell>
               </TableRow>
             ))}
