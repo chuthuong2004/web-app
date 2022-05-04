@@ -1,11 +1,14 @@
 import React, {useEffect, useState} from 'react'
 import cartApi from '../api/cartApi'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import {Link} from 'react-router-dom'
 import CartItem from '../components/CartItem'
+import getMyCart from '../components/Form/FormSign/Redux/cartSlice'
 
 
 const Cart = () => {
+  const dispatch = useDispatch()
+
   const user = useSelector((state) => state.auth.login.currentUser)
   const accessToken = user?.accessToken
   console.log("accessToken: ",accessToken)
@@ -26,11 +29,16 @@ const Cart = () => {
     }
     fetchProductList()
   },[])
-  const getTotalPrice = () => {
-    const totalPrice = cartProduct.reduce((total, item) => total +((item.product.price - (item.product.price * (item.product.discount / 100))) * item.quantity),0)
-    console.log("total: ", totalPrice)
-    return totalPrice
-  }
+
+  // useEffect(() => {
+  //   dispatch(getMyCart({}))
+  // },[dispatch])
+
+  // const getTotalPrice = () => {
+  //   const totalPrice = cartProduct.reduce((total, item) => total +((item.product.price - (item.product.price * (item.product.discount / 100))) * item.quantity),0)
+  //   console.log("total: ", totalPrice)
+  //   return totalPrice
+  // }
   useEffect(()=>{
     setTotalPrice(cartProduct.reduce((total, item) => total +((item.product.price - (item.product.price * (item.product.discount / 100))) * item.quantity),0))
   },[cartProduct])
@@ -43,7 +51,7 @@ const Cart = () => {
             <p>Bạn đang có {cartProduct.length} sản phẩm trong giỏ hàng</p>
             <div className="cart__info__txt__price">
               <span>Thành tiền </span>
-              <span>{totalPrice}</span>
+              <span>{totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}đ</span>
             </div>
           </div>
           <div className="cart__info__btn">

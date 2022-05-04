@@ -39,6 +39,7 @@
     "react-start": "^1.1.2",
     "redux": "^4.1.2",
     "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.4.1",
     "sass": "^1.49.11",
     "scrollreveal": "^4.0.9",
     "styled-components": "^5.3.3",

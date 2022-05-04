@@ -33,20 +33,19 @@ const CartItem = (props) => {
 
 
 
-    const updateQuantity = (opt, id) => {
+    const updateQuantity = async (opt, id) => {
         if (opt === '+') {
 
-            cartApi.updateQuantity(id,quantity+1, accessToken)
+            await cartApi.updateQuantity(id,quantity+1, accessToken)
             setQuantity(quantity+1)
 
         }
 
         if (opt === '-') {
-            cartApi.updateQuantity(id,quantity-1,  accessToken)
+            await cartApi.updateQuantity(id,quantity-1,  accessToken)
             setQuantity(quantity-1 === 0 ? 1 : quantity-1)
         }
     }
-
 
 
     useEffect(() => {
@@ -69,7 +68,7 @@ const CartItem = (props) => {
                 </Link>
             </div>
             <div className="cart__item__info__price">
-                {(item.product.price*((100-item.product.discount)/100))}đ
+                {(item.product.price*((100-item.product.discount)/100)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}đ
                 {console.log(("price", item.product.price*((100-item.product.discount)/100)))}
             </div>
             <div className="cart__item__info__quantity">
