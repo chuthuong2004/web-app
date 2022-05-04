@@ -1132,7 +1132,7 @@ input:checked ~ .custom-checkbox__checkmark > i {
           justify-content: center;
 }
 
-.checkout .checkout__container {
+.checkout .checkout-container {
   background-color: #fff;
   width: 50%;
   display: -webkit-box;
@@ -1144,32 +1144,36 @@ input:checked ~ .custom-checkbox__checkmark > i {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.checkout .checkout__container .checkout__container__cart table {
+.checkout .checkout-container__cart table {
   border-radius: 5px;
   text-align: center;
   vertical-align: center;
 }
 
-.checkout .checkout__container .checkout__container__cart table th {
+.checkout .checkout-container__cart table th {
   border: 1px solid rgba(255, 0, 0, 0.3);
 }
 
-.checkout .checkout__container .checkout__container__cart table td {
+.checkout .checkout-container__cart table td {
   height: 50%;
   border: 1px solid rgba(255, 0, 0, 0.3);
   font-weight: 400;
   font-size: .8em;
 }
 
-.checkout .checkout__container .checkout__container__cart table td img {
+.checkout .checkout-container__cart table td img {
   height: 40px;
   text-align: center;
   float: left;
 }
 
-.checkout .checkout__container .checkout__container__cart table td p {
+.checkout .checkout-container__cart table td p {
   float: left;
   text-align: center;
 }

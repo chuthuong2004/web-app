@@ -31,8 +31,8 @@ const Checkout = () => {
 
   return (
     <div className="checkout">
-      <div className="checkout__container">
-        <div className="checkout__container__cart">
+      <div className="checkout-container">
+        <div className="checkout-container__cart">
           <table>
             <tr>
               <th>Sản phẩm</th>
@@ -53,6 +53,17 @@ const Checkout = () => {
               <td colspan= "2">{totalPrice}</td>
             </tr>
           </table>
+        </div>
+        <div className="checkout-container__info">
+              <div>
+                <input></input>
+              </div>
+              <div>
+                <input></input>
+              </div>
+              <div>
+                <input></input>
+              </div>
         </div>
       </div>
     </div>

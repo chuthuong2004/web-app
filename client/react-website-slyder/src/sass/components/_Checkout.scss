@@ -4,13 +4,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    .checkout__container {
+    .checkout-container {
         background-color: #fff;
         width: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        .checkout__container__cart {
+        // vertical-align: middle;
+        flex-direction: column;
+        &__cart {
             table {
                 border-radius: 5px;
                 text-align: center;
@@ -36,6 +38,9 @@
                 }
 
             }
+        }
+        &__info {
+
         }
     }
 }

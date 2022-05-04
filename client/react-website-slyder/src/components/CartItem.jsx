@@ -33,20 +33,19 @@ const CartItem = (props) => {
 
 
 
-    const updateQuantity = (opt, id) => {
+    const updateQuantity = async (opt, id) => {
         if (opt === '+') {
 
-            cartApi.updateQuantity(id,quantity+1, accessToken)
+            await cartApi.updateQuantity(id,quantity+1, accessToken)
             setQuantity(quantity+1)
 
         }
 
         if (opt === '-') {
-            cartApi.updateQuantity(id,quantity-1,  accessToken)
+            await cartApi.updateQuantity(id,quantity-1,  accessToken)
             setQuantity(quantity-1 === 0 ? 1 : quantity-1)
         }
     }
-
 
 
     useEffect(() => {
