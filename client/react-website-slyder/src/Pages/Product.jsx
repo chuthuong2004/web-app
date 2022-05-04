@@ -70,7 +70,7 @@ const Product = props => {
                       <img src={item.images[1].img} />
                     </div>
                     <h3 className="product-card__name">{item.name}</h3>
-                    <p className="product-card__price">{item.price*(100-item.discount)/100} Vnđ <span className="product-card__price__old">{item.price}</span></p>
+                    <p className="product-card__price">{(item.price*(100-item.discount)/100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} Vnđ <span className="product-card__price__old">{(item.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span></p>
                 </div>
                   </Link>
                 ))

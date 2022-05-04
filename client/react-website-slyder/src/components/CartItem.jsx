@@ -68,7 +68,7 @@ const CartItem = (props) => {
                 </Link>
             </div>
             <div className="cart__item__info__price">
-                {(item.product.price*((100-item.product.discount)/100))}đ
+                {(item.product.price*((100-item.product.discount)/100)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}đ
                 {console.log(("price", item.product.price*((100-item.product.discount)/100)))}
             </div>
             <div className="cart__item__info__quantity">

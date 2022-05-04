@@ -51,7 +51,7 @@ const Cart = () => {
             <p>Bạn đang có {cartProduct.length} sản phẩm trong giỏ hàng</p>
             <div className="cart__info__txt__price">
               <span>Thành tiền </span>
-              <span>{totalPrice}</span>
+              <span>{totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}đ</span>
             </div>
           </div>
           <div className="cart__info__btn">
