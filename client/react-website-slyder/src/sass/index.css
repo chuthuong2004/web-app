@@ -1148,6 +1148,21 @@ input:checked ~ .custom-checkbox__checkmark > i {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.checkout .checkout-container__button {
+  background-color: #4704ff;
+  padding: 5px 10px;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.checkout .checkout-container__button:hover {
+  opacity: 0.7;
 }
 
 .checkout .checkout-container__cart {
