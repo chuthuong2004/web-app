@@ -75,6 +75,10 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-react-hooks": "^4.4.0"
+    "envify": "^4.1.0",
+    "eslint-plugin-react-hooks": "^4.4.0",
+    "terser": "^5.13.1",
+    "terser-brunch": "^4.1.0",
+    "uglifyify": "^5.0.2"
   }
 }

@@ -11,10 +11,12 @@ import Home from "./Pages/HomePage"
 import List from "./Pages/List/List"
 import New from "./Pages/new/New"
 import Product from "./Pages/Product/Product"
+import Order from "./Pages/Order/order"
 
 
 
 function App() {
+
   return (
     <Router>
       <GlobalStyle />
@@ -25,6 +27,7 @@ function App() {
         <Route path='/List' element={<List />} />
         <Route path="/New" element={<New inputs={productInputs} title="Add New Product" />} />
         <Route path="/Product" element={<Product />} />
+        <Route path="/Order" element={<Order />} />
       </Routes>
     </Router>
   )

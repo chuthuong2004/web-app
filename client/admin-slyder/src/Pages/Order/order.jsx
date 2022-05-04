@@ -1,16 +1,16 @@
-import "./list.scss"
+import "./order.scss"
 import Sidebar from "../../components/SiderBar/Sidebar"
-import Datatable from "../../components/User/Datatable"
+import Dataorder from "../../components/Order/Dataoder"
 
-const List = () => {
+const order = () => {
   return (
     <div className="list">
       <Sidebar/>
       <div className="listContainer">
-        <Datatable/>
+        <Dataorder />
       </div>
     </div>
   )
 }
 
-export default List
+export default order

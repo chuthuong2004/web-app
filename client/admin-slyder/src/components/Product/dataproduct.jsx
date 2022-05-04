@@ -50,8 +50,8 @@ const Datatable = () => {
           </TableHead>
           <TableBody>
             {products.map((product) => (
-              <TableRow>
-                <TableCell className="tableCell" key={product._id}></TableCell>
+              <TableRow keys={product.id} id={product.id}>
+                <TableCell className="tableCell" keys={product.id}>{product.this}</TableCell>
                 
                 <TableCell className="tableCell">
                   <div className="cellWrapper">
