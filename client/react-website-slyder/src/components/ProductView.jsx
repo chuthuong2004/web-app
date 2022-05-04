@@ -5,7 +5,6 @@ import cartApi from '../api/cartApi'
 import { useDispatch, useSelector } from 'react-redux'
 import productApi from '../api/productApi'
 import { get } from 'react-hook-form'
-import moment from 'moment'
 
 const ProductView = (props) => {
 
@@ -219,7 +218,7 @@ const ProductView = (props) => {
         {product.reviews.map((item) => (
             <div key={product.id} className="product-review__list__item">
                 <div className="product-review__list__item__user">User: {item.user.username}</div>
-                <div className="product-review__list__item__info">{moment(item.date).format("DD/MM/YYYY HH:mm:ss")}</div>
+                <div className="product-review__list__item__info">{(item.date)}</div>
                 <div className="product-review__list__item__comment">{item.content}</div>
                 {
                     [...Array(item.star)].map(star => (
