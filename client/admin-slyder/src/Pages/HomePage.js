@@ -26,8 +26,6 @@ function Home() {
             getAllUsers(user?.accessToken, dispatch, axiosJWT)
         }
     })
-
-    console.log(Home)
     return (
         <>
             <div className="home">
