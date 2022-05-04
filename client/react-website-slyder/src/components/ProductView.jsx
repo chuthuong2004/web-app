@@ -5,7 +5,6 @@ import cartApi from '../api/cartApi'
 import { useDispatch, useSelector } from 'react-redux'
 import productApi from '../api/productApi'
 import { get } from 'react-hook-form'
-import moment from 'moment'
 
 const ProductView = (props) => {
 
