@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import productApi from '../api/productApi'
 import { get } from 'react-hook-form'
 
+// tep nay bi moment
+
 const ProductView = (props) => {
 
     const user = useSelector((state) => state.auth.login.currentUser)
