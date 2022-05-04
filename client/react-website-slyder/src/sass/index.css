@@ -1150,6 +1150,22 @@ input:checked ~ .custom-checkbox__checkmark > i {
           flex-direction: column;
 }
 
+.checkout .checkout-container__cart {
+  width: 80%;
+  border: 3px solid #333;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .checkout .checkout-container__cart table {
   border-radius: 5px;
   text-align: center;
@@ -1161,10 +1177,11 @@ input:checked ~ .custom-checkbox__checkmark > i {
 }
 
 .checkout .checkout-container__cart table td {
-  height: 50%;
+  height: 70%;
   border: 1px solid rgba(255, 0, 0, 0.3);
   font-weight: 400;
   font-size: .8em;
+  padding: 5px;
 }
 
 .checkout .checkout-container__cart table td img {
@@ -1176,5 +1193,28 @@ input:checked ~ .custom-checkbox__checkmark > i {
 .checkout .checkout-container__cart table td p {
   float: left;
   text-align: center;
+}
+
+.checkout .checkout-container__info {
+  width: 80%;
+  border: 3px solid #333;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.checkout .checkout-container__info__list label {
+  display: inline-block;
+  padding: 8px 8px 8px 0;
+}
+
+.checkout .checkout-container__info__list input {
+  width: 100%;
+  padding-left: 5px;
+}
+
+.checkout .checkout-container__info__list select {
+  width: 100%;
+  padding: 5px;
 }
 /*# sourceMappingURL=index.css.map */

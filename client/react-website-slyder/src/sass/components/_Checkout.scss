@@ -13,6 +13,13 @@
         // vertical-align: middle;
         flex-direction: column;
         &__cart {
+            width: 80%;
+            border: 3px solid #333;
+            border-radius: 20px;
+            display: flex;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             table {
                 border-radius: 5px;
                 text-align: center;
@@ -21,10 +28,11 @@
                     border: 1px solid rgba(255, 0, 0, .3);  
                 }
                 td {
-                    height: 50%;
+                    height: 70%;
                     border: 1px solid rgba(255, 0, 0, .3);
                     font-weight: 400;
                     font-size: .8em;
+                    padding: 5px;
 
                     img {
                         height: 40px;
@@ -40,7 +48,26 @@
             }
         }
         &__info {
+            width: 80%;
+            border: 3px solid #333;
+            border-radius: 20px;
+            padding: 10px;
+            margin-top: 10px;
+            &__list {
+                label {
+                    display: inline-block;
+                    padding: 8px 8px 8px 0;
+                }
+                input {
+                    width: 100%;
+                    padding-left: 5px;
+                }
 
+                select {
+                    width: 100%;
+                    padding: 5px;
+                }
+            }
         }
     }
 }

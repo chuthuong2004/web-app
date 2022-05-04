@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import cartApi from '../api/cartApi'
+import axios from 'axios';
 
 
 const Checkout = () => {
@@ -9,7 +10,31 @@ const Checkout = () => {
   console.log("accessToken: ",accessToken)
   const [cartProduct, setCartProduct] = useState([])
   const [totalPrice, setTotalPrice] = useState(0)
+  const [city, setCity] = useState([])
+  const [optionCity, setOptionCity] = useState("")
+  const [quan, setQuan] = useState([])
+  const [optionQuan, setOptionQuan] = useState("")
+  const [phuong, setPhuong] = useState([])
   console.log("cartproduct",cartProduct)
+
+
+  const handleCity = (e) => {
+    const dataCity = e.target.value
+    setOptionCity(dataCity)
+    console.log("datacity", dataCity)
+    const cityTam = city.find((item, index) => item.name === dataCity)
+    console.log("cityTam", cityTam)
+    setQuan(cityTam.districts)
+  }
+
+  const handleQuan = (e) => {
+    const dataQuan = e.target.value
+    setOptionQuan(dataQuan)
+    console.log("Quan", dataQuan)
+    const phuongTam = quan.find((item, index) => item.name === dataQuan)
+    console.log("Danh sach phuong", phuongTam)
+    setPhuong(phuongTam.wards)
+  }
 
 
   useEffect(() => {
@@ -24,6 +49,20 @@ const Checkout = () => {
     }
     fetchProductList()
   },[])
+
+  useEffect(() => {
+    const fetchAddress = async () => {
+      await axios.get(`https://provinces.open-api.vn/api/?depth=3`)
+      .then(res => {
+        const data = res.data;
+        console.log("Data",data)
+        setCity(data)
+        
+      })
+      .catch(error => console.log(error));
+    }
+    fetchAddress()
+  }, [])
 
   useEffect(()=>{
     setTotalPrice(cartProduct.reduce((total, item) => total +((item.product.price - (item.product.price * (item.product.discount / 100))) * item.quantity),0))
@@ -55,14 +94,78 @@ const Checkout = () => {
           </table>
         </div>
         <div className="checkout-container__info">
-              <div>
-                <input></input>
+              <div className="checkout-container__info__list">
+                <div className='checkout-container__info__list__col25'>
+                  <label>Họ tên</label>
+                </div>
+                <div className='checkout-container__info__list_col75'>
+                  <input />
+                </div>
               </div>
-              <div>
-                <input></input>
+              <div className="checkout-container__info__list">
+                <div className='checkout-container__info__list__col25'>
+                  <label>Số điện thoại</label>
+                </div>
+                <div className='checkout-container__info__list_col75'>
+                  <input />
+                </div>
               </div>
-              <div>
-                <input></input>
+              <div className="checkout-container__info__list">
+                <div className='checkout-container__info__list__col25'>
+                  <label>Tỉnh/Thành phố</label>
+                </div>
+                <div className='checkout-container__info__list_col75'>
+                <select id="country" name="country" onChange={e => handleCity(e)} >
+                  <option >Chọn</option>
+                  {city.map((item, index) => (
+                    <option value={item.name}  >{item.name}</option>
+                  ))}
+                </select>
+                </div>
+
+              </div>
+              <div className="checkout-container__info__list">
+                <div className='checkout-container__info__list__col25'>
+                  <label>Quận/Huyện</label>
+                </div>
+                <div className='checkout-container__info__list_col75'>
+                <select  name="quan" onChange={e => handleQuan(e)}>
+                  {/* {  optionCity.map((item, index) => (
+                      <option value={item.name} onChange={e => handleQuan(e)} >{item.name}</option>
+                    ))} */}
+                    <option>Chọn</option>
+                    {quan.map((item, index) =>(
+                      <option value={item.name}> {item.name} </option>
+                    ))}
+                  </select>
+
+                </div>
+
+              </div>
+              <div className="checkout-container__info__list">
+                <div className='checkout-container__info__list__col25'>
+                  <label>Phường/Xã</label>
+                </div>
+                <div className='checkout-container__info__list_col75'>
+                  <select  name="phuong" >
+                  {/* {  optionCity.map((item, index) => (
+                      <option value={item.name} onChange={e => handleQuan(e)} >{item.name}</option>
+                    ))} */}
+                    <option>Chọn</option>
+                    {phuong.map((item, index) =>(
+                      <option value={item.name}> {item.name} </option>
+                    ))} 
+                  </select>
+                </div>
+
+              </div>
+              <div className="checkout-container__info__list">
+              <div className='checkout-container__info__list__col25'>
+                  <label>Đường</label>
+                </div>
+                <div className='checkout-container__info__list_col75'>
+                  <input />
+                </div>
               </div>
         </div>
       </div>

@@ -68,7 +68,7 @@ const Footer = () => {
             </FooterSignout>
         </FooterContainer>
         <FotterEnd>
-            <WebsiteRights>© S L Y D E R VIỆT NAM 2022 </WebsiteRights>
+            <WebsiteRights>© L T H Store VIỆT NAM 2022 </WebsiteRights>
         </FotterEnd>
     </>
   )
