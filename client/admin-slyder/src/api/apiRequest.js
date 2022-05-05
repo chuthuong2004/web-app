@@ -1,7 +1,8 @@
 import { loginFailed, loginStart, loginSuccess, logoutFailed, logoutStart, logoutSuccess, signupFailed, signupStart, signupSuccess } from "./../components/Form/FormSign/Redux/authSlice";
 import axios from "axios";
 import { deleteUsersFailse, deleteUsersStart, deleteUsersSuccess, getUsersFailse, getUsersStart, getUsersSuccess } from "../components/Form/FormSign/Redux/userSlider";
-
+import { getProductsFailse, getProductsStart, getProductsSuccess } from "../components/Form/FormSign/Redux/productSlider";
+import { getOrdersSuccess, getOrdersStart, getOrdersFailse } from "../components/Form/FormSign/Redux/orderSlider"
 export const loginUser = async (user, dispatch, navigate) => {
     dispatch(loginStart())
 
@@ -64,5 +65,33 @@ export const DeleteUser = async (accessToken, dispatch, id, axiosJWT) => {
         dispatch(deleteUsersSuccess(res.data))
     } catch (err) {
         dispatch(deleteUsersFailse(err.response.data))
+    }
+}
+
+export const getAllProducts = async (accessToken, dispatch, axiosJWT) => {
+    dispatch(getProductsStart())
+    try {
+        const res = await axiosJWT.get(("https://web-api-chuthuong.herokuapp.com/api/v1/admin/products"), {
+            headers: { token: `Bearer ${accessToken}` }
+        })
+        console.log("pro" + res)
+        dispatch(getProductsSuccess(res.data))
+
+    } catch (err) {
+        dispatch(getProductsFailse())
+    }
+}
+
+export const getAllOrders = async (accessToken, dispatch, axiosJWT) => {
+    dispatch(getOrdersStart())
+    try {
+        const res = await axiosJWT.get(("https://web-api-chuthuong.herokuapp.com/api/v1/admin/orders"), {
+            headers: { token: `Bearer ${accessToken}` }
+        })
+        console.log("pro" + res)
+        dispatch(getOrdersSuccess(res.data))
+
+    } catch (err) {
+        dispatch(getOrdersFailse())
     }
 }

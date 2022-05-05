@@ -7,26 +7,31 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import productApi from "../../api/productApi"
-import { useState, useEffect } from "react";
+import { useNavigate} from "react-router";
+import {useSelector} from "react-redux"
+import { getAllProducts } from "../../api/apiRequest";
+import { useDispatch } from "react-redux";
+import { createAxios } from "../Form/FormSign/Redux/createInstance";
+import { useEffect } from "react";
+import { loginSuccess } from '../Form/FormSign/Redux/authSlice'
 
 const Datatable = () => {
 
-  const [products, setProducts] = useState([])
-    console.log(products)
-    
-    useEffect(() => {
-        const fetchProductList = async () => {
-          try {
-            const responseProduct = await productApi.getAll()
-            setProducts(responseProduct.products)
-          } catch (error) {
-            console.log('Failed: ', error)
-          }
-        }
-    
-        fetchProductList()
-      }, []);
+  const productList = useSelector((state) => state.products.products.allProducts)
+
+  console.log(productList.products.map)
+  const user = useSelector((state) => state.auth.login?.currentUser)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    let axiosJWT = createAxios(user, dispatch, loginSuccess)
+
+    // useEffect(() => {
+    //     if (!user) {
+    //         navigate("/SignUp")
+    //     } if (user?.accessToken) {
+    //         getAllProducts(user?.accessToken, dispatch, axiosJWT)
+    //     }
+    // })
 
   return (
     <div className="datatable">
@@ -49,18 +54,18 @@ const Datatable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {products.map((product) => (
-              <TableRow keys={product.id} id={product.id}>
-                <TableCell className="tableCell" keys={product.id}>{product.this}</TableCell>
+            {productList.products.map((products) => (
+              <TableRow keys={products.id} id={products.id}>
+                <TableCell className="tableCell" keys={products.id}>{products.this}</TableCell>
                 
                 <TableCell className="tableCell">
                   <div className="cellWrapper">
-                    <img src={product.images[0].img} alt="" className="image" />
+                    <img src={products.images[0].img} alt="" className="image" />
                   </div>
                 </TableCell>
-                <TableCell className="tableCell">{product.name}</TableCell>
-                <TableCell className="tableCell">{product.title}</TableCell>
-                <TableCell className="tableCell">{product.price}</TableCell>
+                <TableCell className="tableCell">{products.name}</TableCell>
+                <TableCell className="tableCell">{products.title}</TableCell>
+                <TableCell className="tableCell">{products.price}</TableCell>
                 
                 <TableCell className="tableCell">
                   <button className="viewButton">View</button>
